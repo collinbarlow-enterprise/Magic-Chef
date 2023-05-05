@@ -3,7 +3,15 @@ AI powered recipe generation tool for the masses. Mobile first design, with a si
 
 The time is now, to say no to the stress of uncertain dinner plans!
 
+## Brief Description
+
+I'm going to create an application that allows for a usesr to provide a list of ingredients, and submit that list to OpenAi, which will return a few recipes and one of those recipes will also have cooking instructions. 
+
+
+
 ## PROJECT LINKS BELOW:
+
+API: OpenAI Text Completion Guide [OpenAi](https://platform.openai.com/docs/guides/completion/introduction)
 
 TRELLO [Trello](https://trello.com/invite/b/tBpX9Gzk/ATTI59503739140a04329c7d6576fae8fffb619A3BEF/project-4)
 
