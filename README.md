@@ -1,5 +1,7 @@
 # Magic-Chef
-AI powered recipe generation tool for the masses. Mobile first design, with an simple flow. 
+AI powered recipe generation tool for the masses. Mobile first design, with a simple flow. Provide ingredients, cook time, you're desired cuisine, and watch the power of AI return a delicious idea. 
+
+The time is now, to say no to the stress of uncertain dinner plans!
 
 ## PROJECT LINKS BELOW:
 
