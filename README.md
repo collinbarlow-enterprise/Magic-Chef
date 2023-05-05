@@ -7,6 +7,7 @@ The time is now, to say no to the stress of uncertain dinner plans!
 
 I'm going to create an application that allows for a usesr to provide a list of ingredients, and submit that list to OpenAi, which will return a few recipes and one of those recipes will also have cooking instructions. 
 
+Iteration One will include the ability to create, edit, and delete a pantry list, submit that list to OpenAi, then receive a recipe, which can be saved/deleted, and add notes/reviews to that recipe. 
 
 
 ## PROJECT LINKS BELOW:
