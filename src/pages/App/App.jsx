@@ -9,6 +9,7 @@ import { getUser } from '../../utilities/users-service';
 import * as notesAPI from '../../utilities/notes-api'
 import Notes from '../../components/Notes/Notes'
 import HomePage from '../HomePage/HomePage'
+import ForumPage from '../ForumPage/ForumPage'
 
 export default function App() {
 
@@ -49,6 +50,7 @@ export default function App() {
             <Route path="/orders/" element={<OrderHistoryPage />} />
             <Route path="/orders/new" element={<NewPantryPage />} />
             <Route path="/home" element={<HomePage />} />
+            <Route path="/forum" element={<ForumPage />} />
           </Routes>
         </>
         :

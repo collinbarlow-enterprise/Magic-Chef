@@ -4,6 +4,7 @@ export default function HomePage() {
   return (
     <div>
         <h1>HomePage</h1>
+        
         <p>WELCOME TO MAGIC CHEF!</p>
         <p>YOU'RE PERSONAL, AI POWERED, HOME COOK. </p>
         <p>IF YOU'RE STRUGGLING TO FIGURE OUT WHAT TO COOK TONIGHT:</p>

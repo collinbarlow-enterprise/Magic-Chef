@@ -13,6 +13,8 @@ export default function NavBar({user, updateUser}) {
       &nbsp; | &nbsp;
       <Link to="/home">HomePage Component</Link>
       &nbsp; | &nbsp;
+      <Link to="/forum">Forum Component</Link>
+      &nbsp; | &nbsp;
       <Link to="/">Main App Page/Component</Link>
       <h2>Welcome, {user.name}</h2>
       <UserLogOut user={user} setUser={updateUser} />
