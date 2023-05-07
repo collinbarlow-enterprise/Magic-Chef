@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import NewOrderPage from '../NewOrderPage/NewOrderPage'
-import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage'
+import NewPantryPage from '../NewPantryPage/NewPantryPage'
+import OrderHistoryPage from '../AllRecipePage/AllRecipePage'
 import AuthPage from '../AuthPage/AuthPage'
 import { Routes, Route } from 'react-router-dom';
 import NavBar from '../../components/NavBar/NavBar'
 import { getUser } from '../../utilities/users-service';
 import * as notesAPI from '../../utilities/notes-api'
 import Notes from '../../components/Notes/Notes'
+import HomePage from '../HomePage/HomePage'
 
 export default function App() {
 
@@ -46,22 +47,23 @@ export default function App() {
           <NavBar user={user} updateUser={updateUser}/>
           <Routes>
             <Route path="/orders/" element={<OrderHistoryPage />} />
-            <Route path="/orders/new" element={<NewOrderPage />} />
+            <Route path="/orders/new" element={<NewPantryPage />} />
+            <Route path="/home" element={<HomePage />} />
           </Routes>
         </>
         :
         <AuthPage user={user} setUser={updateUser} />
       }
-      <h1>Notes here</h1>
-      <Routes>
+      <p>Built by collin</p>
+      {/* <Routes>
   {notes.length ? <Route path='/notes' element={<Notes notes={notes} />}/> : null }
 </Routes>
-{!notes.length && <p>No notes yet</p>}
+{!notes.length && <p>No notes yet</p>} */}
       
-      <form onSubmit={handleSubmit}>
+      {/* <form onSubmit={handleSubmit}>
         <input type="text" value={notes} onChange={handleChange}></input>
         <button type="submit">Create new note</button>
-      </form>
+      </form> */}
     </main>
   )
 }
