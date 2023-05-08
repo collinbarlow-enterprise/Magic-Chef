@@ -9,7 +9,7 @@ module.exports = {
 
 // show pantry - grab all pantries by user and then show (not specific pantry details page)
 async function showPantry (req,res) {
-    console.log(req, 'MADE IT TO SHOW Pantry')
+    console.log(req, 'MADE IT TO SHOW Pantry CONTROLLER')
     const pantry = await Pantry.find({}).populate('ingredients').exec();
     console.log(pantry, 'PANTRY in SHOW pantry before sending back to UI')
     res.json(pantry)
@@ -18,12 +18,16 @@ async function showPantry (req,res) {
 
 // set a variable to the req.body
 // use that variable to create a new pantry document
+// may need to split the array into separate strings here...could probably also do it in the views
+
 
 async function createPantry(req,res) {
-    console.log('MADE IT TO CREATE Pantry CONTROLLER')
+    // console.log(req, 'MADE IT TO CREATE Pantry CONTROLLER')
     try {
+        // console.log(req.body, 'MADE it inside createPantry')
+        req.body.user = req.user._id;
         const newPantry = await Pantry.create(req.body);
-        console.log(newPantry, 'newPantry in controller before sending back')
+        // console.log(newPantry, 'newPantry in controller before sending back')
         res.json(newPantry)
     } catch (err) {
         res.status(400).json(err)

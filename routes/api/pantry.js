@@ -7,7 +7,7 @@ const pantryCtrl = require('../../controllers/api/pantry');
 router.post('/', pantryCtrl.createPantry)
 
 // show pantry - GET
-router.get('/show', pantryCtrl.showPantry)
+router.get('/showPantry', pantryCtrl.showPantry)
 
 // edit pantry - not sure, think it may be a PUT...need to double check HTTP verg
 router.put('/editPantry', pantryCtrl.editPantry)
