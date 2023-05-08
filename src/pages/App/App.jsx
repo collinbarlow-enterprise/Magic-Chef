@@ -24,7 +24,7 @@ export default function App() {
     async function getNotes(){
       try {
         const notes = await notesAPI.getAll();
-        console.log(notes);
+        // console.log(notes);
         setNotes([notes]);
       } catch (err) {
         console.log(err);
