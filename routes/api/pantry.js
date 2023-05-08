@@ -9,6 +9,9 @@ router.post('/', pantryCtrl.createPantry)
 // show pantry - GET
 router.get('/showPantry', pantryCtrl.showPantry)
 
+// get pantry - GET
+router.get('/:id', pantryCtrl.getPantry)
+
 // edit pantry - not sure, think it may be a PUT...need to double check HTTP verg
 router.put('/editPantry', pantryCtrl.editPantry)
 
