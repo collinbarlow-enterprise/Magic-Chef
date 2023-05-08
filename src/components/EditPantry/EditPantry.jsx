@@ -12,7 +12,7 @@ export default function EditPantry() {
         async function getPantry() {
             try{
                 const pantryData = await pantryAPI.getPantry(id)
-                console.log(pantryData, 'pantryData in getPantry EDITPANTRY COMP')
+                // console.log(pantryData, 'pantryData in getPantry EDITPANTRY COMP')
                 setNewPantry(pantryData);
             } catch (error) {
                 console.log(error, 'error in getPantry');
@@ -26,7 +26,8 @@ export default function EditPantry() {
         try{
           // console.log(event, 'evt in handleSubmit');
           // console.log(pantry, 'PANTRY in handleSubmit');
-          await pantryAPI.updatePantry(id, newPantry);
+          console.log(newPantry, 'newPantry in EditPantry Comp')
+          await pantryAPI.editPantry(id, newPantry);
           navigate('/orders/new')
         }catch (err) {
           console.log(err, 'handlesubmit failed')

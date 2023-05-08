@@ -10,6 +10,7 @@ import * as notesAPI from '../../utilities/notes-api'
 import Notes from '../../components/Notes/Notes'
 import HomePage from '../HomePage/HomePage'
 import ForumPage from '../ForumPage/ForumPage'
+import EditPantry from '../../components/EditPantry/EditPantry'
 
 export default function App() {
 
@@ -51,6 +52,7 @@ export default function App() {
             <Route path="/orders/new" element={<NewPantryPage />} />
             <Route path="/home" element={<HomePage />} />
             <Route path="/forum" element={<ForumPage />} />
+            <Route path="/orders/:id/editPantry" element={<EditPantry />} />
           </Routes>
         </>
         :

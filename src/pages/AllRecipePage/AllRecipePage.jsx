@@ -2,7 +2,7 @@ import React from 'react'
 import { checkToken } from '../../utilities/users-service'
 import AllRecipes from '../../components/AllRecipes/AllRecipes'
 
-export default function OrderHistoryPage() {
+export default function AllRecipePage() {
 
   async function handleCheckToken(){
    const expDate = await checkToken()

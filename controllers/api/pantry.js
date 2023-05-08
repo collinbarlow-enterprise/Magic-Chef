@@ -16,7 +16,7 @@ async function showPantry (req,res) {
     res.json(pantry)
 }
 async function getPantry(req, res) {
-    console.log('made it inside GETPANTRY CONTROLLER')
+    // console.log('made it inside GETPANTRY CONTROLLER')
     try {
         const pantry = await Pantry.findById(req.params.id);
         res.json(pantry);
@@ -46,10 +46,21 @@ async function createPantry(req,res) {
 // grab pantry document by ID from req.body
 // update pantry from req.body (findOneAndUpdate?)
 // maybe a spread operator with a push
-async function editPantry(req,res) {
-    console.log('MADE IT TO EDIT Pantry')
+async function editPantry(req, res) {
+    // console.log(req, 'MADE IT TO EDIT Pantry CONTROLLER')
     try {
-
+        id = req.params.id;
+        ingredients = req.body.newPantry.ingredients.split(',');
+        // console.log(req.params, 'req.params in EDIT PANTRY')
+        // console.log(id, 'ID in EDIT PANTRY')
+        // console.log(req.body, 'req.body in EDIT PANTRY')
+        // console.log(req.body.ingredients, 'req.body.INGRED in EDIT PANTRY')
+        // console.log(ingredients, 'INGREDIENTS in EDIT PANTRY')
+        const editedPantry = await Pantry.findByIdAndUpdate(id, {ingredients}, {
+            new: true,
+        });
+        console.log(editedPantry, 'editedPantry in editPantry CONTROLLER')
+        res.json(editedPantry)
     } catch (err) {
         res.status(400).json(err)
     }
@@ -58,7 +69,7 @@ async function editPantry(req,res) {
 // grab pantry document ID from req.body
 // findOneAndDelete method?
 async function deletePantry(req,res) {
-    console.log(req, 'MADE IT TO DELETE Pantry')
+    // console.log(req, 'MADE IT TO DELETE Pantry')
     try {
         const pantry = await Pantry.findByIdAndDelete(req.body._id);
         res.json({success: true, pantry})

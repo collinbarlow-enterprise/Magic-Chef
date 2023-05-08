@@ -13,7 +13,7 @@ router.get('/showPantry', pantryCtrl.showPantry)
 router.get('/:id', pantryCtrl.getPantry)
 
 // edit pantry - not sure, think it may be a PUT...need to double check HTTP verg
-router.put('/editPantry', pantryCtrl.editPantry)
+router.put('/:id/editPantry', pantryCtrl.editPantry)
 
 // delete pantry - DELETE
 router.delete('/deletePantry', pantryCtrl.deletePantry)
