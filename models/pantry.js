@@ -5,7 +5,7 @@ const pantrySchema = new Schema({
     user: {type: Schema.Types.ObjectId, ref: 'User', required: true},
     content: String,
     // double check how to use an empty array
-    ingredients: [],
+    ingredients: [String],
     cuisine: String
 
 });
