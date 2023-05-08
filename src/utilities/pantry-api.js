@@ -1,9 +1,9 @@
-import pantry from '../../models/pantry';
 import sendRequest from './send-request';
 const BASE_URL = '/api/pantry';
 
-export function createPantry() {
-    return sendRequest(BASE_URL, 'POST')
+export function createPantry(pantry) {
+    console.log(pantry, 'made it to create pantryAPI')
+    return sendRequest(`${BASE_URL}`, 'POST', pantry)
 }
 
 export function showPantry() {

@@ -20,9 +20,11 @@ async function showPantry (req,res) {
 // use that variable to create a new pantry document
 
 async function createPantry(req,res) {
-    console.log(req, 'MADE IT TO CREATE Pantry')
+    console.log('MADE IT TO CREATE Pantry CONTROLLER')
     try {
-
+        const newPantry = await Pantry.create(req.body);
+        console.log(newPantry, 'newPantry in controller before sending back')
+        res.json(newPantry)
     } catch (err) {
         res.status(400).json(err)
     }

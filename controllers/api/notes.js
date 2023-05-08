@@ -9,7 +9,7 @@ module.exports = {
 
 async function index(req, res) {
 try{
-    console.log('index function')
+    // console.log('index function')
   const notes = await Note.find({}).populate('string').exec();
   res.json(notes)
 } catch (err) {
@@ -20,7 +20,7 @@ try{
 
 async function show(req, res) {
 try {
-    console.log('show function')
+    // console.log('show function')
     const note = await Note.findById(req.params.id);
     res.json(note)
 } catch(err) {
@@ -29,7 +29,7 @@ try {
 
 async function create(req, res) {
 try{
-    console.log('create function')
+    // console.log('create function')
     const note = await Note.create(req.body);
     res.json(note);
 } catch (err) {
