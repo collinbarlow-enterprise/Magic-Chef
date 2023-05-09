@@ -1,4 +1,8 @@
 const Pantry = require('../../models/pantry')
+// code to access openai
+const openai = require('openai');
+openai.apiKey = process.env.OPENAI_API_KEY
+
 
 module.exports = {
     createPantry,
@@ -33,14 +37,18 @@ async function getPantry(req, res) {
 async function createPantry(req,res) {
     // console.log(req, 'MADE IT TO CREATE Pantry CONTROLLER')
     try {
-        // console.log(req.body, 'MADE it inside createPantry')
+        console.log(req.body, 'MADE it inside createPantry')
         req.body.user = req.user._id;
-        const newPantry = await Pantry.create(req.body);
+        const ingredients = req.body.ingredients.split(',')
+        const newPantry = await Pantry.create({ingredients, user: req.body.user});
         // console.log(newPantry, 'newPantry in controller before sending back')
         res.json(newPantry)
     } catch (err) {
-        res.status(400).json(err)
-    }
+        if (err.name === 'ValidationError') {
+          console.log(err.errors);
+        }
+        res.status(400).json(err);
+      }
 }
 
 // grab pantry document by ID from req.body

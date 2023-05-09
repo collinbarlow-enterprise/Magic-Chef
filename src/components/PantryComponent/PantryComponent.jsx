@@ -23,11 +23,16 @@ export default function PantryComponent({ingredients, id, pantry, handleDelete, 
     // console.log('inside handleEDIT PantryComponent')
     handleEditList(pantry._id)
   }
+
+  function handleRecipeCreate() {
+    
+  }
   return (
     <div>
         <div>PantryComponent Do the ingredients show up: {ingredients}</div>
         <button onClick ={() => handleDelete(pantry)}>Delete Ingredient list</button>
         <button onClick ={() => handleEdit(pantry)}>Edit list</button>
+        <button onClick ={() => handleRecipeCreate(pantry)}>Create Recipes</button>
     </div>
   )
 }
