@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 
 const recipeSchema = new Schema({
   user: {type: Schema.Types.ObjectId, ref: 'User', required: true},
-  ingredients: {type: Schema.Types.ObjectId, ref:'Pantry'},
+  ingredients: [String],
   instructions: String,
 //   double check how reviews/postings work for embedded/referenced
   notes: {type: Schema.Types.ObjectId, ref: 'Notes'},

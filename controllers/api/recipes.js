@@ -1,8 +1,8 @@
-const Pantry = require('../../models/pantry')
 const Recipe = require('../../models/recipe')
 
 // code to access openai
 const openai = require('../../config/gpt');
+const pantry = require('../../models/pantry');
 
 module.exports = {
     createRecipe,
@@ -27,14 +27,14 @@ async function createRecipe(req, res) {
         console.log(response, 'response in createRecipe')
         const completionText = response.data.choices[0].text;
         console.log(completionText, 'recipe text in CREATERECIPE Controller');
-
-
-
-
+        const newRecipe = await Recipe.create({ingredients: ingredients, user: req.body.user, instructions: completionText})
+        console.log(newRecipe, 'newRecipe in RECIPECreation Controller')
 
     } catch (error) {
-        res.status(400).json(err)
+        console.error(error);
+        res.status(400).json({ message: error.message, stack: error.stack });
     }
+    
 }
 
 
