@@ -2,7 +2,7 @@ const Pantry = require('../../models/pantry')
 const Recipe = require('../../models/recipe')
 
 // code to access openai
-const openai = require('../config/gpt');
+const openai = require('../../config/gpt');
 
 module.exports = {
     createRecipe,

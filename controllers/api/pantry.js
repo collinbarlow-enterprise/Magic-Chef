@@ -14,7 +14,7 @@ module.exports = {
 
 // show pantry - grab all pantries by user and then show (not specific pantry details page)
 async function showPantry (req,res) {
-    // console.log(req, 'MADE IT TO SHOW Pantry CONTROLLER')
+    console.log(req, 'MADE IT TO SHOW Pantry CONTROLLER')
     const pantry = await Pantry.find({}).populate('ingredients').exec();
     // console.log(pantry, 'PANTRY in SHOW pantry before sending back to UI')
     res.json(pantry)

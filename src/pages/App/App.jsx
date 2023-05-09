@@ -21,19 +21,19 @@ export default function App() {
     setUser(userState)
   }
 
-  useEffect(function(){
-    async function getNotes(){
-      try {
-        const notes = await notesAPI.getAll();
-        // console.log(notes);
-        setNotes([notes]);
-      } catch (err) {
-        console.log(err);
-      }
-    }
-    getNotes();
-    //need to have the second argument to stop it from being an infinite loop
-}, [])
+//   useEffect(function(){
+//     async function getNotes(){
+//       try {
+//         const notes = await notesAPI.getAll();
+//         // console.log(notes);
+//         setNotes([notes]);
+//       } catch (err) {
+//         console.log(err);
+//       }
+//     }
+//     getNotes();
+//     //need to have the second argument to stop it from being an infinite loop
+// }, [])
   function handleChange (evt) {
 
   }

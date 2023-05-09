@@ -6,7 +6,7 @@ const recipeCtrl = require('../../controllers/api/recipes');
 // get recipes
 
 // create recipes
-router.post('/', recipeCtrl.createRecipe)
+router.post('/recipeCreate', recipeCtrl.createRecipe)
 // delete recipes
 
 
