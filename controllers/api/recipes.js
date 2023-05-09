@@ -14,7 +14,8 @@ async function createRecipe(req, res) {
     try{
         // maybe .ingredients or .pantry.ingredients
         const ingredients = req.body.ingredients
-        const prompt = 'Give me a recipe using {ingredients}'
+        console.log(ingredients, 'ingredients in CREATE CONTROLLER')
+        const prompt = `Give me a recipe using ${ingredients}`
         const params = {
             model: 'text-davinci-003',
             prompt: prompt,
@@ -24,6 +25,12 @@ async function createRecipe(req, res) {
         };
         const response = await openai.createCompletion(params);
         console.log(response, 'response in createRecipe')
+        const completionText = response.data.choices[0].text;
+        console.log(completionText, 'recipe text in CREATERECIPE Controller');
+
+
+
+
 
     } catch (error) {
         res.status(400).json(err)

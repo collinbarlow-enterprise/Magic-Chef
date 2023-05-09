@@ -1,5 +1,6 @@
 import React from 'react'
 import * as pantryAPI from '../../utilities/pantry-api'
+import * as recipeAPI from '../../utilities/recipe-api'
 // import IngredientComponent from '../IngredientComponent/IngredientComponent';
 
 export default function PantryComponent({ingredients, id, pantry, handleDelete, handleEditList}) {
@@ -24,9 +25,11 @@ export default function PantryComponent({ingredients, id, pantry, handleDelete, 
     handleEditList(pantry._id)
   }
 
-  function handleRecipeCreate() {
-    
+  async function handleRecipeCreate(pantry) {
+    console.log(pantry,'pantry in RECIPE CREATE UI')
+    await recipeAPI.createRecipe(pantry)
   }
+  
   return (
     <div>
         <div>PantryComponent Do the ingredients show up: {ingredients}</div>

@@ -16,7 +16,7 @@ app.use(require('./config/checkToken'));
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/notes', require('./routes/api/notes'));
 app.use('/api/pantry', require('./routes/api/pantry'));
-app.use('/api/recipe', require('./routes/api/recipes'));
+app.use('/api/recipes', require('./routes/api/recipes'));
 
 //catch all
 app.get('/*', function (req, res) {

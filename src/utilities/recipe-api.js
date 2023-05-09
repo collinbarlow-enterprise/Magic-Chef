@@ -7,7 +7,7 @@ export function createRecipe(pantry) {
     return sendRequest(`${BASE_URL}/recipeCreate`, 'POST', pantry);
   }
 
-  export function createPantry(pantry) {
-    // console.log(pantry, 'made it to create pantryAPI')
-    return sendRequest(`${BASE_URL}`, 'POST', pantry)
-}
+//   export function createPantry(pantry) {
+//     // console.log(pantry, 'made it to create pantryAPI')
+//     return sendRequest(`${BASE_URL}`, 'POST', pantry)
+// }

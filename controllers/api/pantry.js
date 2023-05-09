@@ -14,7 +14,7 @@ module.exports = {
 
 // show pantry - grab all pantries by user and then show (not specific pantry details page)
 async function showPantry (req,res) {
-    console.log(req, 'MADE IT TO SHOW Pantry CONTROLLER')
+    // console.log(req, 'MADE IT TO SHOW Pantry CONTROLLER')
     const pantry = await Pantry.find({}).populate('ingredients').exec();
     // console.log(pantry, 'PANTRY in SHOW pantry before sending back to UI')
     res.json(pantry)
@@ -37,7 +37,7 @@ async function getPantry(req, res) {
 async function createPantry(req,res) {
     // console.log(req, 'MADE IT TO CREATE Pantry CONTROLLER')
     try {
-        console.log(req.body, 'MADE it inside createPantry')
+        // console.log(req.body, 'MADE it inside createPantry')
         req.body.user = req.user._id;
         const ingredients = req.body.ingredients.split(',')
         const newPantry = await Pantry.create({ingredients, user: req.body.user});
@@ -67,7 +67,7 @@ async function editPantry(req, res) {
         const editedPantry = await Pantry.findByIdAndUpdate(id, {ingredients}, {
             new: true,
         });
-        console.log(editedPantry, 'editedPantry in editPantry CONTROLLER')
+        // console.log(editedPantry, 'editedPantry in editPantry CONTROLLER')
         res.json(editedPantry)
     } catch (err) {
         res.status(400).json(err)
