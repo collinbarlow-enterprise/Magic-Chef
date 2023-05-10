@@ -4,10 +4,12 @@ const recipeCtrl = require('../../controllers/api/recipes');
 
 
 // get recipes
-
+router.get('/', recipeCtrl.index)
 // create recipes
 router.post('/recipeCreate', recipeCtrl.createRecipe)
 // delete recipes
+router.delete('/deleteRecipe', recipeCtrl.deleteRecipe)
+
 
 
 

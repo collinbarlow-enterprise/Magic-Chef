@@ -2,11 +2,28 @@ const Recipe = require('../../models/recipe')
 
 // code to access openai
 const openai = require('../../config/gpt');
-const pantry = require('../../models/pantry');
+const Pantry = require('../../models/pantry');
 
 module.exports = {
     createRecipe,
+    index,
+    deleteRecipe,
 
+}
+
+async function index(req,res) {
+    const recipes = await Recipe.find({});
+    res.json(recipes)
+}
+
+async function deleteRecipe(req,res) {
+    try {
+        const recipe = await Recipe.findByIdAndDelete(req.body._id);
+        res.json({success: true, recipe})
+
+    } catch (err) {
+        res.status(400).json(err)
+    }
 }
 
 async function createRecipe(req, res) {
@@ -72,17 +89,4 @@ async function createRecipe(req, res) {
 }
 
 
-
-
-async function generateText(prompt) {
-    const gptResponse = await openai.completions.create({
-      engine: 'davinci',
-      prompt,
-      maxTokens: 2048,
-      n: 1,
-      stop: '\n',
-    });
-    const { choices } = gptResponse.data;
-    return choices[0].text.trim();
-  }
   
