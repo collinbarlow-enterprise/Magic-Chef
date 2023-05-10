@@ -29,15 +29,15 @@ async function createRecipe(req, res) {
         const completionText = response.data.choices[0].text;
         console.log(completionText, 'completionText in CREATERECIPE Controller');
 
-        const recipeNameRegex = /^([A-Za-z\s]+)(?=\nIngredients:)/;
+        const recipeNameRegex = /^([A-Za-z\s]+)(?=\nIngredients:)/m;
         // const recipeNameMatch = completionText.match(recipeNameRegex);
         const recipeNameMatch = completionText.match(recipeNameRegex);
         console.log(recipeNameMatch, 'recipeNameMatch in CONTROLLER')
-        const recipeName = recipeNameMatch ? recipeNameMatch[0].trim() : '';
+        const recipeName = recipeNameMatch ? recipeNameMatch[1].trim() : '';
         console.log(recipeName, 'recipeName in CONTROLLER')
 
         // const ingredientsRegex = /^Ingredients:(.*)(?=Instructions:)/s
-        const ingredientsRegex = /^Ingredients:\s*(.*)(?=Instructions:)/s
+        const ingredientsRegex = /^Ingredients:\s*(.*)(?=Instructions:)/ms;
 
         // const ingredientsRegex = /^Ingredients:(.*)/s
 
@@ -47,7 +47,7 @@ async function createRecipe(req, res) {
         console.log(recipeIngredients, 'recipeIngredients in CONTROLLER')
 
         // const instructionsRegex = /^Instructions:(.*)$/s
-        const instructionsRegex = /^Instructions:\s*(.*)$/s
+        const instructionsRegex = /^Instructions:\s*(.*)$/ms;
 
         const instructionsMatch = completionText.match(instructionsRegex)
         console.log(instructionsMatch, 'instructionsMatch in CONTROLLER')
