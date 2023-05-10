@@ -8,12 +8,20 @@ module.exports = {
     createRecipe,
     index,
     deleteRecipe,
-
+    findSpecificRecipe
 }
 
 async function index(req,res) {
     const recipes = await Recipe.find({});
     res.json(recipes)
+}
+
+async function findSpecificRecipe(req,res) {
+    // console.log(req.params, 'req.body in SPECIFIC RECIPE CONTROLLER')
+    // console.log(req, 'req in SPECIFIC RECIPE CONTROLLER')
+    const recipe = await Recipe.findById(req.params.id)
+    // console.log(recipe, 'recipe in CONTROLLER')
+    res.json(recipe)
 }
 
 async function deleteRecipe(req,res) {

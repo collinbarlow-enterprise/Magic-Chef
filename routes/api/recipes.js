@@ -5,6 +5,8 @@ const recipeCtrl = require('../../controllers/api/recipes');
 
 // get recipes
 router.get('/', recipeCtrl.index)
+// get specific recipe
+router.get('/findRecipe/:id', recipeCtrl.findSpecificRecipe)
 // create recipes
 router.post('/recipeCreate', recipeCtrl.createRecipe)
 // delete recipes

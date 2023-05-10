@@ -12,6 +12,11 @@ export function createRecipe(pantry) {
     return sendRequest(`${BASE_URL}/recipeCreate`, 'POST', pantry);
   }
 
+export function findRecipe(id) {
+    console.log(id, 'recipeId in api function')
+    return sendRequest(`${BASE_URL}/findRecipe/${id}`)
+}
+
 export function deleteRecipe(recipe) {
     return sendRequest(`${BASE_URL}/deleteRecipe`, 'DELETE', recipe)
 }

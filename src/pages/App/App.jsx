@@ -11,6 +11,7 @@ import Notes from '../../components/Notes/Notes'
 import HomePage from '../HomePage/HomePage'
 import ForumPage from '../ForumPage/ForumPage'
 import EditPantry from '../../components/EditPantry/EditPantry'
+import RecipeDetails from '../../components/RecipeDetails/RecipeDetails'
 
 export default function App() {
 
@@ -53,6 +54,7 @@ export default function App() {
             <Route path="/home" element={<HomePage />} />
             <Route path="/forum" element={<ForumPage />} />
             <Route path="/orders/:id/editPantry" element={<EditPantry />} />
+            <Route path='/recipes/:id' element={<RecipeDetails/>} />
           </Routes>
         </>
         :
