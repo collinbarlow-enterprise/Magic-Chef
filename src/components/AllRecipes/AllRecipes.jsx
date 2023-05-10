@@ -10,14 +10,12 @@ export default function AllRecipes({recipe, ingredients, recipeName, recipeIngre
   }
   return (
     <div>
-        <div>ALL RECIPE COMPONENT</div>
+        <div></div>
         <div>The {recipeName} recipe is made using:</div>
          <div>{recipeIngredients}</div>
-         <div>The {recipeInstructions}</div>
          <button onClick ={() => handleDelete(recipe)}>Delete Recipe</button>
          <button onClick ={() => handleDetailsPage(id)}>Details Page</button>
-        <div>SUB COMPONENT THAT WILL LINK TO RECIPE DETAILS</div>
-        {<RecipeDetails/>}
+
     
     </div>
   )

@@ -11,7 +11,7 @@ export function getPantry(id) {
 }
 
 export function showPantry() {
-    // console.log('made it to SHOW pantryAPI')
+    console.log('made it to SHOW pantryAPI')
     return sendRequest(`${BASE_URL}/showPantry`)
 }
 

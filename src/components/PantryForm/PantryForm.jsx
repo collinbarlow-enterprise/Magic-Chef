@@ -36,9 +36,6 @@ async function handleEditList(id){
     <div>
       <div>PANTRY Ingredients - WILL MAP OVER ALL PANTRIES</div>
       <div>{<PantryMap pantries={pantries} handleDelete={handleDelete} handleEditList={handleEditList} />}</div>
-      
-
-  
     </div>
   )
 }

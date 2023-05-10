@@ -1,8 +1,10 @@
 import React from 'react'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import * as pantryAPI from '../../utilities/pantry-api'
 
 export default function PantryForm() {
+  const navigate = useNavigate();
   const [pantry, setPantry] = useState({ ingredients: ''});
 
 
@@ -12,7 +14,7 @@ export default function PantryForm() {
     try{
       // console.log(event, 'evt in handleSubmit');
       // console.log(pantry, 'PANTRY in handleSubmit');
-      await pantryAPI.createPantry(pantry);
+
     }catch (err) {
       console.log(err, 'handlesubmit failed')
     }}

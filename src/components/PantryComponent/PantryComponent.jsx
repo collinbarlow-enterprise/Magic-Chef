@@ -1,9 +1,11 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import * as pantryAPI from '../../utilities/pantry-api'
 import * as recipeAPI from '../../utilities/recipe-api'
 // import IngredientComponent from '../IngredientComponent/IngredientComponent';
 
 export default function PantryComponent({ingredients, id, pantry, handleDelete, handleEditList}) {
+  const navigate = useNavigate();
     // console.log(ingredients, 'ingredients in pantrycomponent')
     // console.log(pantry, 'PANTRY in pantrycomponent')
 
@@ -26,8 +28,10 @@ export default function PantryComponent({ingredients, id, pantry, handleDelete, 
   }
 
   async function handleRecipeCreate(pantry) {
-    console.log(pantry,'pantry in RECIPE CREATE UI')
-    await recipeAPI.createRecipe(pantry)
+    console.log(pantry,'pantry in RECIPE CREATE UI');
+    await recipeAPI.createRecipe(pantry);
+    navigate('/orders/');
+    
   }
   
   return (
