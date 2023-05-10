@@ -25,9 +25,43 @@ async function createRecipe(req, res) {
         };
         const response = await openai.createCompletion(params);
         console.log(response, 'response in createRecipe')
+
         const completionText = response.data.choices[0].text;
-        console.log(completionText, 'recipe text in CREATERECIPE Controller');
-        const newRecipe = await Recipe.create({ingredients: ingredients, user: req.body.user, instructions: completionText})
+        console.log(completionText, 'completionText in CREATERECIPE Controller');
+
+        const recipeNameRegex = /^([A-Za-z\s]+)(?=\nIngredients:)/;
+        // const recipeNameMatch = completionText.match(recipeNameRegex);
+        const recipeNameMatch = completionText.match(recipeNameRegex);
+        console.log(recipeNameMatch, 'recipeNameMatch in CONTROLLER')
+        const recipeName = recipeNameMatch ? recipeNameMatch[0].trim() : '';
+        console.log(recipeName, 'recipeName in CONTROLLER')
+
+        // const ingredientsRegex = /^Ingredients:(.*)(?=Instructions:)/s
+        const ingredientsRegex = /^Ingredients:\s*(.*)(?=Instructions:)/s
+
+        // const ingredientsRegex = /^Ingredients:(.*)/s
+
+        const ingredientsMatch = completionText.match(ingredientsRegex);
+        console.log(ingredientsMatch, 'ingredientsMatch in CONTROLLER')
+        const recipeIngredients = ingredientsMatch ? ingredientsMatch[1].trim() : '';
+        console.log(recipeIngredients, 'recipeIngredients in CONTROLLER')
+
+        // const instructionsRegex = /^Instructions:(.*)$/s
+        const instructionsRegex = /^Instructions:\s*(.*)$/s
+
+        const instructionsMatch = completionText.match(instructionsRegex)
+        console.log(instructionsMatch, 'instructionsMatch in CONTROLLER')
+        const instructions = instructionsMatch ? instructionsMatch[1].trim() : '';
+        console.log(instructions, 'instructions in CONTROLLER')
+
+        const newRecipe = await Recipe.create({
+            ingredients: ingredients, 
+            user: req.body.user,
+            recipeName: recipeName,
+            recipeIngredients:recipeIngredients, 
+            recipeInstructions: instructions,
+        })
+
         console.log(newRecipe, 'newRecipe in RECIPECreation Controller')
 
     } catch (error) {
