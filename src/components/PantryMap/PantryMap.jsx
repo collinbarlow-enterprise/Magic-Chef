@@ -3,7 +3,7 @@ import PantryComponent from '../PantryComponent/PantryComponent';
 import * as pantryAPI from '../../utilities/pantry-api'
 // import Pantry from '../../../models/pantry';
 
-export default function PantryMap({pantries, handleDelete, handleEditList}) {
+export default function PantryMap({pantries, handleDelete, handleEditList, getPantries}) {
 // console.log(pantries, 'pantries in PantryMap')
 
     const pantry = pantries.map((p, index) => (
@@ -12,8 +12,9 @@ export default function PantryMap({pantries, handleDelete, handleEditList}) {
         id = {p._id}
         pantry = {p}
         ingredients = {p.ingredients}
-        handleDelete = {handleDelete}
+        // handleDelete = {handleDelete}
         handleEditList = {handleEditList}
+        getPantries={getPantries}
         />
       ));
 

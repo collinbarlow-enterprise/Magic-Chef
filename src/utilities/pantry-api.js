@@ -11,12 +11,12 @@ export function getPantry(id) {
 }
 
 export function showPantry() {
-    console.log('made it to SHOW pantryAPI')
+    // console.log('made it to SHOW pantryAPI')
     return sendRequest(`${BASE_URL}/showPantry`)
 }
 
 export function editPantry(id, newPantry) {
-    console.log(newPantry, 'newPantry in API')
+    // console.log(newPantry, 'newPantry in API')
     console.log(id, 'ID in API')
     return sendRequest(`${BASE_URL}/${id}/editPantry`, 'PUT', {newPantry})
 }
