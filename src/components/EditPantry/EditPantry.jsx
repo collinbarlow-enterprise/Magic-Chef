@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import * as pantryAPI from '../../utilities/pantry-api'
-// import pantry from '../../../models/pantry';
 
 export default function EditPantry() {
     const { id } = useParams();
@@ -16,7 +15,7 @@ export default function EditPantry() {
                 setNewPantry(pantryData);
             } catch (error) {
                 console.log(error, 'error in getPantry');
-            }
+              }
         }
         getPantry();
     }, [id]);
@@ -50,10 +49,8 @@ export default function EditPantry() {
               value={newPantry.ingredients} 
               onChange={handleInputChange}
               />
-            
               <button type='submit'>Add Ingredients</button>
             </form>
-    
           </div>
         </div>
       )

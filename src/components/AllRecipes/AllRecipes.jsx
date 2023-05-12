@@ -1,6 +1,5 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
-import RecipeDetails from '../RecipeDetails/RecipeDetails'
 
 export default function AllRecipes({recipe, ingredients, recipeName, recipeIngredients, recipeInstructions, handleDelete, id}) {
   const navigate = useNavigate();

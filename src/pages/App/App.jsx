@@ -12,6 +12,7 @@ import HomePage from '../HomePage/HomePage'
 import ForumPage from '../ForumPage/ForumPage'
 import EditPantry from '../../components/EditPantry/EditPantry'
 import RecipeDetails from '../../components/RecipeDetails/RecipeDetails'
+import AllRecipePage from '../AllRecipePage/AllRecipePage'
 
 export default function App() {
 
@@ -35,9 +36,6 @@ export default function App() {
 //     getNotes();
 //     //need to have the second argument to stop it from being an infinite loop
 // }, [])
-  function handleChange (evt) {
-
-  }
 
   function handleSubmit (evt) {
     evt.preventDefault();
@@ -49,7 +47,7 @@ export default function App() {
         <>
           <NavBar user={user} updateUser={updateUser}/>
           <Routes>
-            <Route path="/orders/" element={<OrderHistoryPage />} />
+            <Route path="/orders/" element={<AllRecipePage />} />
             <Route path="/orders/new" element={<NewPantryPage />} />
             <Route path="/home" element={<HomePage />} />
             <Route path="/forum" element={<ForumPage />} />
@@ -61,10 +59,7 @@ export default function App() {
         <AuthPage user={user} setUser={updateUser} />
       }
       <p>Built by collin</p>
-      {/* <Routes>
-  {notes.length ? <Route path='/notes' element={<Notes notes={notes} />}/> : null }
-</Routes>
-{!notes.length && <p>No notes yet</p>} */}
+
       
       {/* <form onSubmit={handleSubmit}>
         <input type="text" value={notes} onChange={handleChange}></input>

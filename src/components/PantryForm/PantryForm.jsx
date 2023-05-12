@@ -6,38 +6,10 @@ import PantryMap from '../PantryMap/PantryMap';
 
 export default function PantryForm({pantries, handleDelete, handleEditList, getPantries }) {
 
-//   const navigate = useNavigate();
-//   const [pantries, setPantries] = useState([])
-
-//   async function getPantries() {
-//     try{
-//       const pantry = await pantryAPI.showPantry();
-//       // console.log(pantry, 'pantry in pantry form')
-//       setPantries(pantry);
-//     } catch(err) {
-//       console.log(err, 'error for getPantries')
-//     }
-//   }
-
-//   useEffect(function () {
-//     getPantries();
-//   }, [])
-
-//   async function handleDelete(pantry) {
-//     await pantryAPI.deletePantry(pantry);
-// }
-
-// async function handleEditList(id){
-//   navigate(`/orders/${id}/editPantry`)
-// }
-
-
   return (
     <div>
       <div>Ingredient Lists you've submitted:</div>
-      <div>{<PantryMap pantries={pantries} 
-      // handleDelete={handleDelete} 
-      handleEditList={handleEditList} getPantries={getPantries}/>}</div>
+      <div>{<PantryMap pantries={pantries} handleEditList={handleEditList} getPantries={getPantries}/>}</div>
     </div>
   )
 }

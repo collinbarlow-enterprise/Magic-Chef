@@ -47,11 +47,7 @@ export default function AllRecipePage() {
   return (
     <>
       <h1>All Recipes</h1>
-      
-      {/* <div>Recipe component that will Map over each recipe generated and will link to a detail page</div> */}
-      {/* <div>Detail Page will be nested within recipe component but will list over recipe.fields</div> */}
       <br/>
-
       {recipeMap}
     </>
   )

@@ -20,8 +20,3 @@ export function findRecipe(id) {
 export function deleteRecipe(recipe) {
     return sendRequest(`${BASE_URL}/deleteRecipe`, 'DELETE', recipe)
 }
-
-//   export function createPantry(pantry) {
-//     // console.log(pantry, 'made it to create pantryAPI')
-//     return sendRequest(`${BASE_URL}`, 'POST', pantry)
-// }

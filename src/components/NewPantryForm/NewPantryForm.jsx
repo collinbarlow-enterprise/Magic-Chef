@@ -5,11 +5,8 @@ import * as pantryAPI from '../../utilities/pantry-api'
 
 export default function PantryForm({ ingredientList, setIngredientList, getPantries }) {
   const navigate = useNavigate();
-  // const [pantry, setPantry] = useState({ ingredients: ''});
   const [pantryTrigger, setPantryTrigger] = useState(false);
 
-
-  // async function handleSubmit(evt) {
   async function handleSubmit(evt) {
     evt.preventDefault();
     try{
@@ -40,17 +37,14 @@ export default function PantryForm({ ingredientList, setIngredientList, getPantr
       <div>What ingredients do you have? Separate each item with a coma </div>
       <div className = 'pantry_form'>
         <form onSubmit={handleSubmit}>
-        {/* <form onSubmit={ () => setPantryTrigger(true)}> */}
           <label>Ingredients:</label>
           <input 
           name='ingredients' 
           type='text' 
           value={ingredientList.ingredients} 
           onChange={handleInputChange} />
-        
           <button type='submit'>Add Ingredients</button>
         </form>
-
       </div>
     </div>
   )
