@@ -6,9 +6,9 @@ export default function NavBar({user, updateUser}) {
 
   return (
     <nav>
-      <Link to="/orders">All Recipes</Link>
+      <Link to="/myrecipes">All Recipes</Link>
       &nbsp; | &nbsp;
-      <Link to="/orders/new">New Pantry Page</Link>
+      <Link to="/pantry/new">New Pantry Page</Link>
       &nbsp; | &nbsp;
       <Link to="/home">HomePage Component</Link>
       &nbsp; | &nbsp;

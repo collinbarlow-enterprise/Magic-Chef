@@ -23,7 +23,7 @@ export default function NewPantryPage() {
   }
 
 async function handleEditList(id){
-  navigate(`/orders/${id}/editPantry`)
+  navigate(`/pantry/${id}/editPantry`)
 }
 
   useEffect(function () {

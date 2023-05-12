@@ -20,14 +20,15 @@ export default function PantryComponent({ingredients, id, pantry,  handleEditLis
   async function handleRecipeCreate(pantry) {
     // navigate('/orders/');
     console.log(pantry,'pantry in RECIPE CREATE UI');
+
     // try {
     await recipeAPI.createRecipe(pantry)
-    
+
     // getPantries()
 
       .then(() => {
         setTimeout(() => {
-          navigate('/orders/');
+          navigate('/myrecipes');
           navigate(0);
         }, 3000)})
 

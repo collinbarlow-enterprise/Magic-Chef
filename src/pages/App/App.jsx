@@ -47,11 +47,11 @@ export default function App() {
         <>
           <NavBar user={user} updateUser={updateUser}/>
           <Routes>
-            <Route path="/orders/" element={<AllRecipePage />} />
-            <Route path="/orders/new" element={<NewPantryPage />} />
+            <Route path="/myrecipes" element={<AllRecipePage />} />
+            <Route path="/pantry/new" element={<NewPantryPage />} />
             <Route path="/home" element={<HomePage />} />
             <Route path="/forum" element={<ForumPage />} />
-            <Route path="/orders/:id/editPantry" element={<EditPantry />} />
+            <Route path="/pantry/:id/editPantry" element={<EditPantry />} />
             <Route path='/recipes/:id' element={<RecipeDetails/>} />
           </Routes>
         </>

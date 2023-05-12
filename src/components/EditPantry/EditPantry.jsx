@@ -27,7 +27,7 @@ export default function EditPantry() {
           // console.log(pantry, 'PANTRY in handleSubmit');
           console.log(newPantry, 'newPantry in EditPantry Comp')
           await pantryAPI.editPantry(id, newPantry);
-          navigate('/orders/new')
+          navigate('/pantry/new')
         }catch (err) {
           console.log(err, 'handlesubmit failed')
         }}
