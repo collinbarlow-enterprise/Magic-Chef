@@ -2,15 +2,17 @@ const express = require('express');
 const router = express.Router();
 const recipeCtrl = require('../../controllers/api/recipes');
 
+const ensureLoggedIn = require('../../config/ensureLoggedIn')
+
 
 // get recipes
-router.get('/', recipeCtrl.index)
+router.get('/', ensureLoggedIn, recipeCtrl.index)
 // get specific recipe
-router.get('/findRecipe/:id', recipeCtrl.findSpecificRecipe)
+router.get('/findRecipe/:id', ensureLoggedIn, recipeCtrl.findSpecificRecipe)
 // create recipes
-router.post('/recipeCreate', recipeCtrl.createRecipe)
+router.post('/recipeCreate', ensureLoggedIn, recipeCtrl.createRecipe)
 // delete recipes
-router.delete('/deleteRecipe', recipeCtrl.deleteRecipe)
+router.delete('/deleteRecipe', ensureLoggedIn, recipeCtrl.deleteRecipe)
 
 
 
