@@ -20,3 +20,8 @@ export function findRecipe(id) {
 export function deleteRecipe(recipe) {
     return sendRequest(`${BASE_URL}/deleteRecipe`, 'DELETE', recipe)
 }
+
+export function addNote(id, noteList) {
+    console.log(noteList, 'made it to noteList API ')
+    return sendRequest(`${BASE_URL}/findRecipe/${id}/note`, 'PUT', {noteList})
+}

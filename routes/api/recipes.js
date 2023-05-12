@@ -13,7 +13,8 @@ router.get('/findRecipe/:id', ensureLoggedIn, recipeCtrl.findSpecificRecipe)
 router.post('/recipeCreate', ensureLoggedIn, recipeCtrl.createRecipe)
 // delete recipes
 router.delete('/deleteRecipe', ensureLoggedIn, recipeCtrl.deleteRecipe)
-
+// edit document to make note
+router.put('/findRecipe/:id/note', ensureLoggedIn, recipeCtrl.addNote)
 
 
 

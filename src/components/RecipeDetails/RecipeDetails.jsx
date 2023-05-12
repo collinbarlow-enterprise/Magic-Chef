@@ -7,6 +7,7 @@ export default function RecipeDetails() {
   const { id } = useParams();
   console.log(id, 'recipeID in RECIPE DETAILS')
   const [specificRecipe, setSpecificRecipe] = useState({})
+  const [noteList, setNoteList] = useState({notes : ''});
 
   async function handleGrabRecipe() {
     console.log(id, 'id in handleGrab')
@@ -15,14 +16,46 @@ export default function RecipeDetails() {
     setSpecificRecipe(recipe);
   }
 
+  function handleInputChange(evt) {
+    setNoteList({...noteList, [evt.target.name] : evt.target.value });
+  }
+
+  async function handleSubmit(evt) {
+    evt.preventDefault();
+    try {
+      console.log(noteList, 'noteList before submit')
+      await recipeAPI.addNote(id, noteList).then(() => {
+      handleGrabRecipe();
+      });
+    } catch (err) {
+      console.log(err, 'handleSubmit for notes form failed')
+    }
+  }
+
   useEffect(function () {
     handleGrabRecipe();
   }, [id])
+
   return (
     <div>
+      <h2>What's going on with this recipe???</h2>
         <div>Recipe: {specificRecipe.recipeName}</div><br/>
         <div>Ingredients: {specificRecipe.recipeIngredients}</div><br/>
         <div>Directions: {specificRecipe.recipeInstructions}</div><br/>
+        <div>Notes: {specificRecipe.notes}</div>
+
+        <div>
+          <form onSubmit={handleSubmit}>
+            <label>Write your notes here: </label>
+            <input
+            name = 'notes'
+            type = 'text'
+            value = {noteList.notes}
+            onChange = {handleInputChange}
+            />
+            <button type = 'submit'>Add Notes</button>
+          </form>
+        </div>
     </div>
   )
 }

@@ -8,7 +8,8 @@ module.exports = {
     createRecipe,
     index,
     deleteRecipe,
-    findSpecificRecipe
+    findSpecificRecipe,
+    addNote
 }
 
 async function index(req,res) {
@@ -30,6 +31,23 @@ async function deleteRecipe(req,res) {
         res.json({success: true, recipe})
 
     } catch (err) {
+        res.status(400).json(err)
+    }
+}
+
+async function addNote(req,res) {
+    console.log(req.params, 'req in addNote')
+    console.log(req.body, 'body in addNote')
+    try{
+        const id = req.params.id;
+        const note = req.body.noteList.notes;
+        const grabRecipe = await Recipe.findByIdAndUpdate(
+            id, 
+            { $push: {notes : note}}, 
+            {new: true});
+        res.json(grabRecipe)
+    } catch(err) {
+        console.log(err,'error for addNOte')
         res.status(400).json(err)
     }
 }
@@ -88,6 +106,7 @@ async function createRecipe(req, res) {
         })
 
         console.log(newRecipe, 'newRecipe in RECIPECreation Controller')
+        res.json(newRecipe)
 
     } catch (error) {
         console.error(error);

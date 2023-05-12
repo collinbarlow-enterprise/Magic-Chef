@@ -6,34 +6,29 @@ import * as recipeAPI from '../../utilities/recipe-api'
 
 export default function PantryComponent({ingredients, id, pantry,  handleEditList, getPantries}) {
   const navigate = useNavigate();
-
   function handleEdit(){
     // console.log('inside handleEDIT PantryComponent')
     handleEditList(pantry._id)
   }
-
   async function handleDelete(pantry) {
     await pantryAPI.deletePantry(pantry);
     getPantries()
 }
-
   async function handleRecipeCreate(pantry) {
     // navigate('/orders/');
     console.log(pantry,'pantry in RECIPE CREATE UI');
 
     // try {
-    await recipeAPI.createRecipe(pantry)
-
+    const response = await recipeAPI.createRecipe(pantry);
+    console.log(response,'AFTER in RECIPE CREATE UI');
     // getPantries()
-
-      .then(() => {
-        setTimeout(() => {
+      // .then(() => {
+      //   setTimeout(() => {
           navigate('/myrecipes');
-          navigate(0);
-        }, 3000)})
-
+          // navigate(0);
+        // }, 3000)})
+  }
       //   return redirect ('/orders/');
-      }
         // navigate('/orders');
 
   
