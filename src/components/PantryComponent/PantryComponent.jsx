@@ -38,21 +38,23 @@ export default function PantryComponent({ingredients, id, pantry,
 }
 
   async function handleRecipeCreate(pantry) {
+    // navigate('/orders/');
     console.log(pantry,'pantry in RECIPE CREATE UI');
-    try {
+    // try {
     await recipeAPI.createRecipe(pantry)
-    ;
+    
     // setRecipeCreationTrigger(true);
     // setRecipeCreationTrigger(false);
     // getPantries()
-      // .then(() => {
-        // setTimeout(() => {
-        //   navigate('/orders/');
-        // }, 500)
+      .then(() => {
+        setTimeout(() => {
+          navigate('/orders/');
+          navigate(0);
+        }, 3000)})
 
-        return redirect ('/orders/');
-      } catch (error) {
-        console.log(error,'error for handleCREate')
+      //   return redirect ('/orders/');
+      // } catch (error) {
+      //   console.log(error,'error for handleCREate')
       }
         // navigate('/orders');
       // })
@@ -60,7 +62,7 @@ export default function PantryComponent({ingredients, id, pantry,
       //   console.log(error, 'error while creating pantries');
       // });
     // navigate('/orders');
-  }
+  
 
   // useEffect(() => {
   //   if (recipeCreationTrigger) {
@@ -76,9 +78,11 @@ export default function PantryComponent({ingredients, id, pantry,
   
   return (
     <div>
-        <div>PantryComponent Do the ingredients show up: {ingredients}</div>
-        <button onClick ={() => handleDelete(pantry)}>Delete Ingredient list</button>
-        <button onClick ={() => handleEdit(pantry)}>Edit list</button>
+        <div>
+          {/* PantryComponent Do the ingredients show up:  */}
+          {ingredients}</div>
+        <button onClick ={() => handleDelete(pantry)}>Delete  List</button>
+        <button onClick ={() => handleEdit(pantry)}>Edit List</button>
         {/* <button onClick ={() => setRecipeCreationTrigger(true)}>Create Recipes</button> */}
         <button onClick ={() => handleRecipeCreate(pantry)}>Create Recipes</button>
     </div>

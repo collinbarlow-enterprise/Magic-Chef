@@ -26,7 +26,7 @@ export default function PantryMap({pantries, handleDelete, handleEditList, getPa
 
   return (
     <div>
-    <div>PantryMap</div>
+    {/* <div>PantryMap</div> */}
     <div>{pantry} </div>
     </div>
   )

@@ -37,7 +37,7 @@ export default function PantryForm({ ingredientList, setIngredientList, getPantr
 
   return (
     <div>
-      <div>PANTRY FORM COMPONENTS </div>
+      <div>What ingredients do you have? Separate each item with a coma </div>
       <div className = 'pantry_form'>
         <form onSubmit={handleSubmit}>
         {/* <form onSubmit={ () => setPantryTrigger(true)}> */}

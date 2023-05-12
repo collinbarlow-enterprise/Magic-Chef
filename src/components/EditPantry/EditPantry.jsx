@@ -12,7 +12,7 @@ export default function EditPantry() {
         async function getPantry() {
             try{
                 const pantryData = await pantryAPI.getPantry(id)
-                // console.log(pantryData, 'pantryData in getPantry EDITPANTRY COMP')
+                console.log(pantryData, 'pantryData in getPantry EDITPANTRY COMP')
                 setNewPantry(pantryData);
             } catch (error) {
                 console.log(error, 'error in getPantry');
@@ -39,7 +39,8 @@ export default function EditPantry() {
     
       return (
         <div>
-          <div>PANTRY FORM COMPONENTS </div>
+          <div>Edit your list</div>
+          <div>Ingredients: {newPantry.ingredients}</div>
           <div className = 'pantry_form'>
             <form onSubmit={handleSubmit}>
               <label>Ingredient</label>
@@ -47,7 +48,8 @@ export default function EditPantry() {
               name='ingredients' 
               type='text' 
               value={newPantry.ingredients} 
-              onChange={handleInputChange} />
+              onChange={handleInputChange}
+              />
             
               <button type='submit'>Add Ingredients</button>
             </form>

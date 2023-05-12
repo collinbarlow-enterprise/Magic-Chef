@@ -40,20 +40,20 @@ async function handleEditList(id){
   return (
     <div>
 
-      <h1>New Pantry Page</h1>
+      <h1>What's in the fridge?</h1>
 {/* form component - do I need to send any data down? Or can I just access it in form and send it back? */}
-      <div>Pantry Component that will hold a form</div>
+      {/* <div>What ingredients do you currently have? Separate each item with a coma</div> */}
       {<NewPantryForm ingredientList = {ingredientList} setIngredientList={setIngredientList} getPantries={getPantries}/>}
       <br/>
 {/* will hold a list of documents, so should access data on NewPantry and then pass the prop down */}
-      <div>Pantry Component that will hold all form submissions with a button that upon click will send to ChatGPT and trigger the Recipe to generate</div>
+      {/* <div>Pantry Component that will hold all form submissions with a button that upon click will send to ChatGPT and trigger the Recipe to generate</div> */}
       {<PantryForm pantries={pantries} 
       // handleDelete={handleDelete}  
       handleEditList={handleEditList} getPantries={getPantries}/>}
       <br/>
 {/* will need a way to trigger this component or make it appear elsewhere? Could use a redirect after a button click/submission? */}
-      <div>Recipe Component that will take appear on a button click from the Pantry Component after the ingredients have been sent</div>
-      {<Recipe/>}
+      {/* <div>Recipe Component that will take appear on a button click from the Pantry Component after the ingredients have been sent</div>
+      {<Recipe/>} */}
     </div>
   )
 }

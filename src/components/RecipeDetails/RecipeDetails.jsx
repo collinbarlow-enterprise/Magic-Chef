@@ -41,7 +41,7 @@ export default function RecipeDetails() {
   }, [id])
   return (
     <div>
-        <div>Recipe Details: </div><br/>
+        {/* <div>Recipe Details: </div><br/> */}
         <div>Recipe: {specificRecipe.recipeName}</div><br/>
         <div>Ingredients: {specificRecipe.recipeIngredients}</div><br/>
         <div>Directions: {specificRecipe.recipeInstructions}</div><br/>

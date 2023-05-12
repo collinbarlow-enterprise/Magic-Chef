@@ -34,7 +34,7 @@ export default function PantryForm({pantries, handleDelete, handleEditList, getP
 
   return (
     <div>
-      <div>PANTRY Ingredients - WILL MAP OVER ALL PANTRIES</div>
+      <div>Ingredient Lists you've submitted:</div>
       <div>{<PantryMap pantries={pantries} 
       // handleDelete={handleDelete} 
       handleEditList={handleEditList} getPantries={getPantries}/>}</div>
