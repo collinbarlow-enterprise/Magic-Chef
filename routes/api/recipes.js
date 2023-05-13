@@ -16,7 +16,8 @@ router.delete('/deleteRecipe', ensureLoggedIn, recipeCtrl.deleteRecipe)
 // edit document to make note
 router.put('/findRecipe/:id/note', ensureLoggedIn, recipeCtrl.addNote)
 
-
+// grab document and remove note - delete?
+router.put('/findRecipe/:id/removeNote', recipeCtrl.removeNote)
 
 // // create pantry - POST
 // router.post('/', pantryCtrl.createPantry)

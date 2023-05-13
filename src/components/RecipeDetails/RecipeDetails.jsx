@@ -32,6 +32,12 @@ export default function RecipeDetails() {
     }
   }
 
+  async function handleDelete(index, note) {
+    // console.log(note, 'id in handleDelete UI')
+    await recipeAPI.removeNote(index, note, id);
+    handleGrabRecipe();
+  }
+
   useEffect(function () {
     handleGrabRecipe();
   }, [id])
@@ -42,7 +48,22 @@ export default function RecipeDetails() {
         <div>Recipe: {specificRecipe.recipeName}</div><br/>
         <div>Ingredients: {specificRecipe.recipeIngredients}</div><br/>
         <div>Directions: {specificRecipe.recipeInstructions}</div><br/>
-        <div>Notes: {specificRecipe.notes}</div>
+        <div>Notes: </div>
+        {specificRecipe.notes && specificRecipe.notes.map((note, index, id) => {
+          return (
+          <div key = {index}>
+            <div >{index+1}. {note}</div>
+            <button onClick ={() => handleDelete(index, note)}>Delete Note</button>
+          </div>
+          
+          )
+  })}
+        {/* for (let note in specificRecipe.notes) {
+          <div>note</div>
+        } */}
+        {/* <div>
+        {specificRecipe.notes}
+        </div> */}
 
         <div>
           <form onSubmit={handleSubmit}>

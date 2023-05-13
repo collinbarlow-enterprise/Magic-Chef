@@ -9,7 +9,8 @@ module.exports = {
     index,
     deleteRecipe,
     findSpecificRecipe,
-    addNote
+    addNote,
+    removeNote
 }
 
 async function index(req,res) {
@@ -35,7 +36,7 @@ async function deleteRecipe(req,res) {
     }
 }
 
-async function addNote(req,res) {
+async function addNote(req, res) {
     console.log(req.params, 'req in addNote')
     console.log(req.body, 'body in addNote')
     try{
@@ -47,6 +48,21 @@ async function addNote(req,res) {
             {new: true});
         res.json(grabRecipe)
     } catch(err) {
+        console.log(err,'error for addNOte')
+        res.status(400).json(err)
+    }
+}
+
+async function removeNote(req, res) {
+    try {
+        const id = req.params.id;
+        const recipe = await Recipe.findById(id);
+        const index = req.body.index;
+        const notes = recipe.notes;
+        notes.splice(index,1);
+        const result = await recipe.save();
+        res.json(result);
+    } catch (err) {
         console.log(err,'error for addNOte')
         res.status(400).json(err)
     }

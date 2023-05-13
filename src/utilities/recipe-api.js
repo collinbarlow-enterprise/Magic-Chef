@@ -25,3 +25,8 @@ export function addNote(id, noteList) {
     console.log(noteList, 'made it to noteList API ')
     return sendRequest(`${BASE_URL}/findRecipe/${id}/note`, 'PUT', {noteList})
 }
+
+export function removeNote (index, note, id) {
+    console.log(index, note, 'made it to removeNote API')
+    return sendRequest(`${BASE_URL}/findRecipe/${id}/removeNote`, 'PUT', {index, note}  )
+}
