@@ -7,6 +7,7 @@ export function createPantry(pantry) {
 }
 
 export function getPantry(id) {
+    console.log(id, 'made it to getPantry API')
     return sendRequest(`${BASE_URL}/${id}`)
 }
 

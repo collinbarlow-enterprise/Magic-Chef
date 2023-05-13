@@ -1,4 +1,5 @@
 const Recipe = require('../../models/recipe')
+const User = require('../../models/user')
 
 // code to access openai
 const openai = require('../../config/gpt');
@@ -69,11 +70,17 @@ async function removeNote(req, res) {
 }
 
 async function createRecipe(req, res) {
-    console.log(req.body, 'req.body in CREATE RECIPE CONTROLLER')
+    console.log(req.user, 'REQ IN CREATERECIPE')
+    // console.log(req.body.user, 'req.body.USER in CREATE RECIPE CONTROLLER')
     try{
+        const userId = req.user._id
+        console.log(userId, 'USER VARIABLE ')
+        console.log(typeof userId, 'TYPEOF for User')
+        const foundUser = await User.findById(userId);
+        console.log(foundUser, 'foundUser VARIABLE')
         // maybe .ingredients or .pantry.ingredients
         const ingredients = req.body.ingredients
-        console.log(ingredients, 'ingredients in CREATE CONTROLLER')
+        // console.log(ingredients, 'ingredients in CREATE CONTROLLER')
         const prompt = `Give me a recipe using ${ingredients}`
         const params = {
             model: 'text-davinci-003',
@@ -83,17 +90,17 @@ async function createRecipe(req, res) {
             n:1
         };
         const response = await openai.createCompletion(params);
-        console.log(response, 'response in createRecipe')
+        // console.log(response, 'response in createRecipe')
 
         const completionText = response.data.choices[0].text;
-        console.log(completionText, 'completionText in CREATERECIPE Controller');
+        // console.log(completionText, 'completionText in CREATERECIPE Controller');
 
         const recipeNameRegex = /^([A-Za-z\s]+)(?=\nIngredients:)/m;
         // const recipeNameMatch = completionText.match(recipeNameRegex);
         const recipeNameMatch = completionText.match(recipeNameRegex);
-        console.log(recipeNameMatch, 'recipeNameMatch in CONTROLLER')
+        // console.log(recipeNameMatch, 'recipeNameMatch in CONTROLLER')
         const recipeName = recipeNameMatch ? recipeNameMatch[1].trim() : '';
-        console.log(recipeName, 'recipeName in CONTROLLER')
+        // console.log(recipeName, 'recipeName in CONTROLLER')
 
         // const ingredientsRegex = /^Ingredients:(.*)(?=Instructions:)/s
         const ingredientsRegex = /^Ingredients:\s*(.*)(?=Instructions:)/ms;
@@ -101,27 +108,27 @@ async function createRecipe(req, res) {
         // const ingredientsRegex = /^Ingredients:(.*)/s
 
         const ingredientsMatch = completionText.match(ingredientsRegex);
-        console.log(ingredientsMatch, 'ingredientsMatch in CONTROLLER')
+        // console.log(ingredientsMatch, 'ingredientsMatch in CONTROLLER')
         const recipeIngredients = ingredientsMatch ? ingredientsMatch[1].trim() : '';
-        console.log(recipeIngredients, 'recipeIngredients in CONTROLLER')
+        // console.log(recipeIngredients, 'recipeIngredients in CONTROLLER')
 
         // const instructionsRegex = /^Instructions:(.*)$/s
         const instructionsRegex = /^Instructions:\s*(.*)$/ms;
 
         const instructionsMatch = completionText.match(instructionsRegex)
-        console.log(instructionsMatch, 'instructionsMatch in CONTROLLER')
+        // console.log(instructionsMatch, 'instructionsMatch in CONTROLLER')
         const instructions = instructionsMatch ? instructionsMatch[1].trim() : '';
-        console.log(instructions, 'instructions in CONTROLLER')
+        // console.log(instructions, 'instructions in CONTROLLER')
 
         const newRecipe = await Recipe.create({
             ingredients: ingredients, 
-            user: req.body.user,
+            user: userId,
             recipeName: recipeName,
             recipeIngredients:recipeIngredients, 
             recipeInstructions: instructions,
         })
 
-        console.log(newRecipe, 'newRecipe in RECIPECreation Controller')
+        // console.log(newRecipe, 'newRecipe in RECIPECreation Controller')
         res.json(newRecipe)
 
     } catch (error) {

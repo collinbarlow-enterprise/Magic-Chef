@@ -13,6 +13,7 @@ import ForumPage from '../ForumPage/ForumPage'
 import EditPantry from '../../components/EditPantry/EditPantry'
 import RecipeDetails from '../../components/RecipeDetails/RecipeDetails'
 import AllRecipePage from '../AllRecipePage/AllRecipePage'
+import LoadingPage from '../LoadingPage/LoadingPage'
 
 export default function App() {
 
@@ -53,6 +54,7 @@ export default function App() {
             <Route path="/forum" element={<ForumPage />} />
             <Route path="/pantry/:id/editPantry" element={<EditPantry />} />
             <Route path='/recipes/:id' element={<RecipeDetails/>} />
+            <Route path='/loadingPage/:id' element={<LoadingPage/>} />
           </Routes>
         </>
         :

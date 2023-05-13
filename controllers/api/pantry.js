@@ -20,7 +20,7 @@ async function showPantry (req,res) {
     res.json(pantry)
 }
 async function getPantry(req, res) {
-    // console.log('made it inside GETPANTRY CONTROLLER')
+    console.log('made it inside GETPANTRY CONTROLLER')
     try {
         const pantry = await Pantry.findById(req.params.id);
         res.json(pantry);
