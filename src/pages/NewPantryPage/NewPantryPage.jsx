@@ -31,12 +31,15 @@ async function handleEditList(id){
   }, [])
 
   return (
-    <div>
-      <h1>What's in the fridge?</h1>
+    <div className="container">
+      <div className="new-pantry-page">
+      <div><h1 className="text-center">What's in the fridge?</h1></div>
+      
       {<NewPantryForm ingredientList = {ingredientList} setIngredientList={setIngredientList} getPantries={getPantries}/>}
       <br/>
       {<PantryForm pantries={pantries} handleEditList={handleEditList} getPantries={getPantries}/>}
       <br/>
+    </div>
     </div>
   )
 }

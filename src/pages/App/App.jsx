@@ -40,7 +40,6 @@ export default function App() {
         <AuthPage user={user} setUser={updateUser} />
       }
       <p className="fixed-bottom">Built by collin</p>
-
     </main>
   )
 }

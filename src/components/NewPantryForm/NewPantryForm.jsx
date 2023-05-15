@@ -34,17 +34,27 @@ export default function PantryForm({ ingredientList, setIngredientList, getPantr
 
   return (
     <div>
-      <div>What ingredients do you have? Separate each item with a coma </div>
-      <div className = 'pantry_form'>
-        <form onSubmit={handleSubmit}>
-          <label>Ingredients:</label>
-          <input 
-          name='ingredients' 
-          type='text' 
-          value={ingredientList.ingredients} 
-          onChange={handleInputChange} />
-          <button type='submit'>Add Ingredients</button>
-        </form>
+      <div className="text-center">What ingredients do you have? Separate each item with a coma. </div>
+      <div className = "container new-ingredient-form">
+        <div className="row">
+          <div className="col-2 spacer-new-form-left"></div>
+          <div className="col-8">
+            <form id="pantry-form"onSubmit={handleSubmit}>
+              <label className="ingredient-label">Ingredients:</label>
+              <input 
+              name="ingredients" 
+              type="text" 
+              value={ingredientList.ingredients} 
+              onChange={handleInputChange} />
+            </form>
+          </div>
+          <div className="col-2 spacer-new-form-right"></div>
+          <div className="row">
+            <div className="col-5"></div>
+            <button type="submit" className="add-ingredients-button col-2" form="pantry-form">Add Ingredients</button>
+            <div className="col-5"></div>
+          </div>
+        </div>
       </div>
     </div>
   )

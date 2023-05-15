@@ -7,8 +7,8 @@ import PantryMap from '../PantryMap/PantryMap';
 export default function PantryForm({pantries, handleDelete, handleEditList, getPantries }) {
 
   return (
-    <div>
-      <div>Ingredient Lists you've submitted:</div>
+    <div className="container">
+      <h6 className="text-center">Ingredient Lists you've submitted:</h6>
       <div>{<PantryMap pantries={pantries} handleEditList={handleEditList} getPantries={getPantries}/>}</div>
     </div>
   )

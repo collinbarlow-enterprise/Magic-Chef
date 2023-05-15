@@ -47,12 +47,16 @@ export default function PantryComponent({ingredients, id, pantry,  handleEditLis
 
   
   return (
-    <div>
-        <div>
-          {ingredients}</div>
-        <button onClick ={() => handleDelete(pantry)}>Delete  List</button>
-        <button onClick ={() => handleEdit(pantry)}>Edit List</button>
-        <button onClick ={() => handleRecipeCreate(pantry)}>Create Recipes</button>
+    <div className="card mb-3">
+      <div className="row g-0">
+        <div className="col-sm-8"> <strong>Ingredients:</strong> {ingredients}</div>
+        <div className="col-sm-4">
+          <button className="pantry-button" onClick ={() => handleDelete(pantry)}>Delete  List</button>
+          <button className="pantry-button" onClick ={() => handleEdit(pantry)}>Edit List</button>
+          <button className="pantry-button" onClick ={() => handleRecipeCreate(pantry)}>Create Recipes</button>
+        </div>
+      </div>
+
     </div>
   )
 }
