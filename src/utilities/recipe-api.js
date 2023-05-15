@@ -7,6 +7,7 @@ export function index() {
 }
 
 export function createRecipe(pantry) {
+    console.log(pantry, 'PANTRY IN CREATERECIPE API')
     return sendRequest(`${BASE_URL}/recipeCreate`, 'POST', pantry);
   }
 

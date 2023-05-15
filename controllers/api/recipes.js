@@ -66,6 +66,7 @@ async function createRecipe(req, res) {
     try{
         const userId = req.user._id;
         const ingredients = req.body.ingredients;
+        console.log(ingredients, 'ingredients in CREATERECIPE')
         const prompt = `Give me a recipe using ${ingredients}`;
         const params = {
             model: 'text-davinci-003',
@@ -100,7 +101,6 @@ async function createRecipe(req, res) {
     } catch (error) {
         res.status(400).json({ message: error.message, stack: error.stack });
     }
-    
 }
 
 

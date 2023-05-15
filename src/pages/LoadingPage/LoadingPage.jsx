@@ -9,40 +9,63 @@ export default function LoadingPage() {
   const {id} = useParams();
   const [pantry, setPantry] = useState({})
 
-  async function findPantry() {
-    const currentPantry = await pantryAPI.getPantry(id)
-    setPantry(currentPantry);
-    }  
-
-  async function createRecipe() {
-    await recipeAPI.createRecipe(pantry);
-    navigate('/myrecipes');
-  }
-
-  useEffect(function () {
+  useEffect(() => {
+    async function findPantry() {
+      const currentPantry = await pantryAPI.getPantry(id);
+      console.log(currentPantry, 'currentPantry in findPantry')
+      // setPantry(currentPantry);
+  
+      if (Object.keys(currentPantry).length !==0) {
+        await recipeAPI.createRecipe(currentPantry);
+      // navigate('/myrecipes')
+      }
+    } 
+    
     findPantry();
+
   }, [])
 
-  useEffect(() => {
-    createRecipe();
-  }, [pantry])
+  // async function findPantry() {
+  //   const currentPantry = await pantryAPI.getPantry(id);
+  //   // setPantry(currentPantry);
+
+  //   if (Object.keys(currentPantry).length !==0) {
+  //     createRecipe(currentPantry);}
+  //   }  
+
+  // async function createRecipe(currentPantry) {
+  //   await recipeAPI.createRecipe(currentPantry);
+  //   // navigate('/myrecipes');
+  // }
+
+
+
+  // useEffect(function () {
+  //   findPantry();
+  // }, [])
+
+  // useEffect(() => {
+  //   if (Object.keys(pantry).length !==0) {
+  //     createRecipe();
+  //   }
+  // }, [pantry])
 
   return (
     <div >
       <div className="container background-div text-center">
         <h5>Loading Page</h5>
         <div>The Magic Chef is Cooking Something Up - Sometimes Several Recipes</div>
-        <div class="center">
-          <div class="wave"></div>
-          <div class="wave"></div>
-          <div class="wave"></div>
-          <div class="wave"></div>
-          <div class="wave"></div>
-          <div class="wave"></div>
-          <div class="wave"></div>
-          <div class="wave"></div>
-          <div class="wave"></div>
-          <div class="wave"></div>
+        <div className="center">
+          <div className="wave"></div>
+          <div className="wave"></div>
+          <div className="wave"></div>
+          <div className="wave"></div>
+          <div className="wave"></div>
+          <div className="wave"></div>
+          <div className="wave"></div>
+          <div className="wave"></div>
+          <div className="wave"></div>
+          <div className="wave"></div>
         </div>
         <div>This could take a few seconds...</div>
       </div>

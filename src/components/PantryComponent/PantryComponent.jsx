@@ -14,7 +14,7 @@ export default function PantryComponent({ingredients, id, pantry,  handleEditLis
     await pantryAPI.deletePantry(pantry);
     getPantries()
 }
-  async function handleRecipeCreate() {
+  async function handleNavigation() {
     navigate(`/loadingPage/${id}`)
   }
 
@@ -25,10 +25,9 @@ export default function PantryComponent({ingredients, id, pantry,  handleEditLis
         <div className="col-sm-4">
           <button className="pantry-button" onClick ={() => handleDelete(pantry)}>Delete  List</button>
           <button className="pantry-button" onClick ={() => handleEdit(pantry)}>Edit List</button>
-          <button className="pantry-button" onClick ={() => handleRecipeCreate(pantry)}>Create Recipes</button>
+          <button className="pantry-button" onClick ={() => handleNavigation(pantry)}>Create Recipes</button>
         </div>
       </div>
-
     </div>
   )
 }

@@ -30,7 +30,7 @@ export default function PantryForm({ ingredientList, setIngredientList, getPantr
 
   return (
     <div>
-      <div className="text-center">What ingredients do you have? Separate each item with a coma. </div>
+      <div className="text-center">What ingredients do you have? Separate each item with a coma - minimum of 3 ingredients. </div>
       <div className = "container new-ingredient-form">
         <div className="row">
           <div className="col-2 spacer-new-form-left"></div>
