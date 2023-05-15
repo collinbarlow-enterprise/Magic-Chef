@@ -26,6 +26,7 @@ export default function RecipeDetails() {
       console.log(noteList, 'noteList before submit')
       await recipeAPI.addNote(id, noteList).then(() => {
       handleGrabRecipe();
+      setNoteList({ notes: "" });
       });
     } catch (err) {
       console.log(err, 'handleSubmit for notes form failed')
@@ -43,40 +44,41 @@ export default function RecipeDetails() {
   }, [id])
 
   return (
-    <div>
-      <h2>What's going on with this recipe???</h2>
-        <div>Recipe: {specificRecipe.recipeName}</div><br/>
-        <div>Ingredients: {specificRecipe.recipeIngredients}</div><br/>
-        <div>Directions: {specificRecipe.recipeInstructions}</div><br/>
-        <div>Notes: </div>
-        {specificRecipe.notes && specificRecipe.notes.map((note, index, id) => {
+    <div className="container background-div">
+      <h2 className="text-center">The Chef Recommends:</h2>
+      <h5>{specificRecipe.recipeName} Recipe</h5><br/>
+      <div><strong>Ingredients</strong>: {specificRecipe.recipeIngredients}</div>
+      <br/>
+      <div><strong>Directions</strong>: {specificRecipe.recipeInstructions}</div>
+      <br/>
+      <div><strong>Notes</strong>: </div>
+        {specificRecipe.notes && specificRecipe.notes.map((note, index) => {
           return (
-          <div key = {index}>
-            <div >{index+1}. {note}</div>
+          <div key={index}>
+            <div>{index+1}. {note}</div>
             <button onClick ={() => handleDelete(index, note)}>Delete Note</button>
-          </div>
-          
-          )
-  })}
-        {/* for (let note in specificRecipe.notes) {
-          <div>note</div>
-        } */}
-        {/* <div>
-        {specificRecipe.notes}
-        </div> */}
-
-        <div>
-          <form onSubmit={handleSubmit}>
-            <label>Write your notes here: </label>
-            <input
-            name = 'notes'
-            type = 'text'
-            value = {noteList.notes}
-            onChange = {handleInputChange}
-            />
-            <button type = 'submit'>Add Notes</button>
+          </div>          
+        )})}
+        <div className="container">
+          <form id="notes-form"onSubmit={handleSubmit}>
+            <div className="row">
+              <label className="ingredient-label row">Write your notes here: </label>
+            </div>
+            <div className="row">
+              <input 
+                name = 'notes'
+                type = 'text'
+                value = {noteList.notes}
+                onChange = {handleInputChange}
+              />
+            </div>
           </form>
+          <div className="row">
+            <div className="col-5"></div>
+            <button className="add-ingredients-button col-2"form="notes-form" type = 'submit'>Add Notes</button>
+            <div className="col-5"></div>
+          </div>
         </div>
-    </div>
+    </div>    
   )
 }
