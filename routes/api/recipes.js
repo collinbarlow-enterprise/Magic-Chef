@@ -4,7 +4,6 @@ const recipeCtrl = require('../../controllers/api/recipes');
 
 const ensureLoggedIn = require('../../config/ensureLoggedIn')
 
-
 // get recipes
 router.get('/', ensureLoggedIn, recipeCtrl.index)
 // get specific recipe
@@ -15,23 +14,7 @@ router.post('/recipeCreate', ensureLoggedIn, recipeCtrl.createRecipe)
 router.delete('/deleteRecipe', ensureLoggedIn, recipeCtrl.deleteRecipe)
 // edit document to make note
 router.put('/findRecipe/:id/note', ensureLoggedIn, recipeCtrl.addNote)
-
 // grab document and remove note - delete?
-router.put('/findRecipe/:id/removeNote', recipeCtrl.removeNote)
-
-// // create pantry - POST
-// router.post('/', pantryCtrl.createPantry)
-
-// // show pantry - GET
-// router.get('/showPantry', pantryCtrl.showPantry)
-
-// // get pantry - GET
-// router.get('/:id', pantryCtrl.getPantry)
-
-// // edit pantry - not sure, think it may be a PUT...need to double check HTTP verg
-// router.put('/:id/editPantry', pantryCtrl.editPantry)
-
-// // delete pantry - DELETE
-// router.delete('/deletePantry', pantryCtrl.deletePantry)
+router.put('/findRecipe/:id/removeNote', ensureLoggedIn, recipeCtrl.removeNote)
 
 module.exports = router;

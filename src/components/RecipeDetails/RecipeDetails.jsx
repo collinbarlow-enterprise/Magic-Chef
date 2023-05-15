@@ -5,14 +5,11 @@ import { useState, useEffect } from 'react'
 
 export default function RecipeDetails() {
   const { id } = useParams();
-  console.log(id, 'recipeID in RECIPE DETAILS')
   const [specificRecipe, setSpecificRecipe] = useState({})
   const [noteList, setNoteList] = useState({notes : ''});
 
   async function handleGrabRecipe() {
-    console.log(id, 'id in handleGrab')
     const recipe = await recipeAPI.findRecipe(id);
-    console.log(recipe, 'recipe in RecipeDetails');
     setSpecificRecipe(recipe);
   }
 
@@ -23,7 +20,6 @@ export default function RecipeDetails() {
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-      console.log(noteList, 'noteList before submit')
       await recipeAPI.addNote(id, noteList).then(() => {
       handleGrabRecipe();
       setNoteList({ notes: "" });
@@ -34,7 +30,6 @@ export default function RecipeDetails() {
   }
 
   async function handleDelete(index, note) {
-    // console.log(note, 'id in handleDelete UI')
     await recipeAPI.removeNote(index, note, id);
     handleGrabRecipe();
   }

@@ -4,31 +4,27 @@ import { useNavigate } from 'react-router-dom';
 import * as pantryAPI from '../../utilities/pantry-api'
 
 export default function PantryForm({ ingredientList, setIngredientList, getPantries }) {
-  const navigate = useNavigate();
   const [pantryTrigger, setPantryTrigger] = useState(false);
 
   async function handleSubmit(evt) {
     evt.preventDefault();
     try{
-      // console.log(event, 'evt in handleSubmit');
-      // console.log(pantry, 'PANTRY in handleSubmit');
       await pantryAPI.createPantry(ingredientList);
       setIngredientList({ ingredients: ''});
       getPantries();
-      // navigate('/orders/');
     }catch (err) {
       console.log(err, 'handlesubmit failed')
     }}
 
-    function handleInputChange(evt) {
-      setIngredientList({...ingredientList, [evt.target.name]: evt.target.value });
+  function handleInputChange(evt) {
+    setIngredientList({...ingredientList, [evt.target.name]: evt.target.value });
     }
     
-    useEffect(()=> {
-      if (pantryTrigger){
-        handleSubmit({ preventDefault: () => {} });
-        setPantryTrigger(false);
-        getPantries();
+  useEffect(()=> {
+    if (pantryTrigger){
+      handleSubmit({ preventDefault: () => {} });
+      setPantryTrigger(false);
+      getPantries();
       }
     }, [pantryTrigger])
 

@@ -23,9 +23,6 @@ export default function EditPantry() {
     async function handleSubmit(event) {
         event.preventDefault();
         try{
-          // console.log(event, 'evt in handleSubmit');
-          // console.log(pantry, 'PANTRY in handleSubmit');
-          console.log(newPantry, 'newPantry in EditPantry Comp')
           await pantryAPI.editPantry(id, newPantry);
           navigate('/pantry/new')
         }catch (err) {

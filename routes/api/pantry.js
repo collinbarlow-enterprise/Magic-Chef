@@ -5,16 +5,12 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn')
 
 // create pantry - POST
 router.post('/', ensureLoggedIn, pantryCtrl.createPantry)
-
 // show pantry - GET
 router.get('/showPantry', ensureLoggedIn, pantryCtrl.showPantry)
-
 // get pantry - GET
 router.get('/:id', ensureLoggedIn, pantryCtrl.getPantry)
-
-// edit pantry - not sure, think it may be a PUT...need to double check HTTP verg
+// edit pantry - PUT
 router.put('/:id/editPantry', ensureLoggedIn, pantryCtrl.editPantry)
-
 // delete pantry - DELETE
 router.delete('/deletePantry', ensureLoggedIn,pantryCtrl.deletePantry)
 

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { checkToken } from '../../utilities/users-service'
 import AllRecipes from '../../components/AllRecipes/AllRecipes'
 import * as recipeAPI from '../../utilities/recipe-api' 
 
@@ -9,9 +8,7 @@ export default function AllRecipePage() {
   async function getRecipe() {
     try {
       const recipesData = await recipeAPI.index();
-      console.log(recipesData, 'recipesData in AllRecipePage')
-      setRecipes(recipesData)
-      
+      setRecipes(recipesData);
     } catch (error) {
       console.error(error, 'error for getRecipe in AllRecipePage')
     }

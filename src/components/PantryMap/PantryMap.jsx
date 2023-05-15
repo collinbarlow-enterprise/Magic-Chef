@@ -1,8 +1,7 @@
 import React from 'react'
 import PantryComponent from '../PantryComponent/PantryComponent';
 
-export default function PantryMap({pantries, handleDelete, handleEditList, getPantries}) {
-// console.log(pantries, 'pantries in PantryMap')
+export default function PantryMap({pantries, handleEditList, getPantries}) {
 
     const pantry = pantries.map((p, index) => (
         <PantryComponent
@@ -14,8 +13,6 @@ export default function PantryMap({pantries, handleDelete, handleEditList, getPa
         getPantries={getPantries}
         />
       ));
-
-// console.log(pantry, 'pantry AFTER PANTRIES MAP')
 
   return (
     <div>

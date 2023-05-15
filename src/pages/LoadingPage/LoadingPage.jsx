@@ -1,8 +1,8 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react'
-import * as pantryAPI from '../../utilities/pantry-api'
-import * as recipeAPI from '../../utilities/recipe-api'
+import { useState, useEffect } from 'react';
+import * as pantryAPI from '../../utilities/pantry-api';
+import * as recipeAPI from '../../utilities/recipe-api';
 
 export default function LoadingPage() {
   const navigate = useNavigate();
@@ -10,14 +10,11 @@ export default function LoadingPage() {
   const [pantry, setPantry] = useState({})
 
   async function findPantry() {
-    console.log(id, 'id in loadingPage')
     const currentPantry = await pantryAPI.getPantry(id)
-    console.log(currentPantry, 'curentPantry in getPantry')
     setPantry(currentPantry);
     }  
 
   async function createRecipe() {
-    console.log(pantry, 'pantry in loadingPage Create function')
     await recipeAPI.createRecipe(pantry);
     navigate('/myrecipes');
   }
@@ -34,8 +31,7 @@ export default function LoadingPage() {
     <div >
       <div className="container background-div text-center">
         <h5>Loading Page</h5>
-        <div>The Magic Chef is Cooking Something Up</div>
-        
+        <div>The Magic Chef is Cooking Something Up - Sometimes Several Recipes</div>
         <div class="center">
           <div class="wave"></div>
           <div class="wave"></div>
@@ -50,7 +46,6 @@ export default function LoadingPage() {
         </div>
         <div>This could take a few seconds...</div>
       </div>
-      
     </div>
   )
 }

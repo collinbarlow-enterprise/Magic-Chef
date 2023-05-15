@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import { logOut } from '../../utilities/users-service';
 
-
 export default function NavBar({user}) {
 
   function handleLogOut() {
@@ -21,7 +20,6 @@ export default function NavBar({user}) {
             <li className="nav-item active"><a className="nav-link" href="/home">Home</a></li>
             <li className="nav-item"><a className="nav-link" href="/pantry/new">New Pantry Page</a></li> 
             <li className="nav-item"><a className="nav-link" href="/myrecipes">All Recipes</a></li>
-
           </ul>
         </div>
       </div>

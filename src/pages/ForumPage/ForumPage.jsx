@@ -1,5 +1,7 @@
 import React from 'react'
 
+// not used in this version of Magic Chef
+
 export default function ForumPage() {
   return (
     <div>

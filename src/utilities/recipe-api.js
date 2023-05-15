@@ -6,14 +6,11 @@ export function index() {
     return sendRequest(BASE_URL)
 }
 
-// think ill pass in pantry so that pantry.ingredients can be accessed 
 export function createRecipe(pantry) {
-    console.log(pantry, 'pantry in createRECIPE API')
     return sendRequest(`${BASE_URL}/recipeCreate`, 'POST', pantry);
   }
 
 export function findRecipe(id) {
-    console.log(id, 'recipeId in api function')
     return sendRequest(`${BASE_URL}/findRecipe/${id}`)
 }
 
@@ -22,11 +19,9 @@ export function deleteRecipe(recipe) {
 }
 
 export function addNote(id, noteList) {
-    console.log(noteList, 'made it to noteList API ')
     return sendRequest(`${BASE_URL}/findRecipe/${id}/note`, 'PUT', {noteList})
 }
 
 export function removeNote (index, note, id) {
-    console.log(index, note, 'made it to removeNote API')
     return sendRequest(`${BASE_URL}/findRecipe/${id}/removeNote`, 'PUT', {index, note}  )
 }

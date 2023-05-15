@@ -1,19 +1,18 @@
-import { useState } from 'react'
-import './App.css'
-import NewPantryPage from '../NewPantryPage/NewPantryPage'
-import AuthPage from '../AuthPage/AuthPage'
+import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import NavBar from '../../components/NavBar/NavBar'
 import { getUser } from '../../utilities/users-service';
-import HomePage from '../HomePage/HomePage'
-import ForumPage from '../ForumPage/ForumPage'
-import EditPantry from '../../components/EditPantry/EditPantry'
-import RecipeDetails from '../../components/RecipeDetails/RecipeDetails'
-import AllRecipePage from '../AllRecipePage/AllRecipePage'
-import LoadingPage from '../LoadingPage/LoadingPage'
+import './App.css';
+import NewPantryPage from '../NewPantryPage/NewPantryPage';
+import AuthPage from '../AuthPage/AuthPage';
+import NavBar from '../../components/NavBar/NavBar';
+import HomePage from '../HomePage/HomePage';
+import ForumPage from '../ForumPage/ForumPage';
+import EditPantry from '../../components/EditPantry/EditPantry';
+import RecipeDetails from '../../components/RecipeDetails/RecipeDetails';
+import AllRecipePage from '../AllRecipePage/AllRecipePage';
+import LoadingPage from '../LoadingPage/LoadingPage';
 
 export default function App() {
-
   const [user, setUser] = useState(getUser())
 
   function updateUser(userState){
@@ -22,7 +21,6 @@ export default function App() {
 
   return (
     <main className="App">
-
       {user ?
         <>
           <NavBar user={user} updateUser={updateUser}/>

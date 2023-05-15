@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from 'react'
-import { redirect, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import * as pantryAPI from '../../utilities/pantry-api'
-import * as recipeAPI from '../../utilities/recipe-api'
+
 
 
 export default function PantryComponent({ingredients, id, pantry,  handleEditList, getPantries}) {
   const navigate = useNavigate();
   function handleEdit(){
-    // console.log('inside handleEDIT PantryComponent')
     handleEditList(pantry._id)
   }
+
   async function handleDelete(pantry) {
     await pantryAPI.deletePantry(pantry);
     getPantries()
 }
-  async function handleRecipeCreate(pantry) {
+  async function handleRecipeCreate() {
     navigate(`/loadingPage/${id}`)
   }
 
