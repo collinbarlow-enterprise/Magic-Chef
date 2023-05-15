@@ -1,6 +1,6 @@
 # Magic-Chef
 
-# <strong><em> [Magic Chef])https://magic-chef.herokuapp.com/) : AI powered recipe generation tool with a mobile first design, and friendly user flow. All a user needs to do is provide a list of ingredients, and watch the power of AI return a delicious idea. 
+# <strong><em> [Magic Chef])https://magic-chef.herokuapp.com/) </em></strong>: AI powered recipe generation tool with a mobile first design, and friendly user flow. All a user needs to do is provide a list of ingredients, and watch the power of AI return a delicious idea. 
 
 The time is now, to say no to the stress of uncertain dinner plans!
 
