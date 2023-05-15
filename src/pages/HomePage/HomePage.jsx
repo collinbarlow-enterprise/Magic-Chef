@@ -3,18 +3,23 @@ import React from 'react'
 export default function HomePage() {
   return (
     <div>
-        <h1>HomePage</h1>
-        
-        <p>WELCOME TO MAGIC CHEF!</p>
-        <p>YOU'RE PERSONAL, AI POWERED, HOME COOK. </p>
-        <p>IF YOU'RE STRUGGLING TO FIGURE OUT WHAT TO COOK TONIGHT:</p>
-        <p>
-            GO TO THE PANTRY TAB <br/>
-            ADD WHAT YOU HAVE IN YOUR PANTRY <br/>
-            SELECT A CUISINE YOU'D LIKE TO TRY <br/>
-        </p>
-        <p>AND MAGIC CHEF WILL PROVIDE YOU WITH A FEW RECIPES WITH INSTRUCTIONS</p>
-        <p>IF YOU LIKE A RECIPE, FAVORITE IT, AND SHARE IT ON THE FORUM</p>
+      <div className="container">
+        <div className="home-page">
+          <h1 className="text-center">Welcome to Magic Chef!</h1>
+          <div></div>
+          <p>Your personal, AI-powered, private chef. If you're unsure what to cook tonight, Magic Chef will generate a recipe using commonly found ingredients and the ones you supply.</p>
+          <br/>
+          <h5 >Here's how to use Magic Chef:</h5>
+          <ul className="home-form">
+            <li>Go to the New Pantry Page</li>
+            <li>Add your ingredients to the list</li>
+            <li>Click on the Create Recipe button</li>
+            <li>Then look at the recipe details</li>
+          </ul>
+          <br/>
+          <p>Note that it can take up to 30 seconds for the recipe to generate. Magic Chef has a lot to think about. </p>
+        </div>
+      </div>
     </div>
   )
 }
