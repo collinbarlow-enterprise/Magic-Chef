@@ -159,12 +159,6 @@ button[type="submit"] {
 
 body {
   background-image: url('/public/images/peach-background.jpg');
-  /* background-size: cover;
-  background-repeat: repeat-y;
-  margin-bottom: 25px; */
-  /* height: 50%; */
-
-  /* Center and scale the image nicely */
   background-position: center;
   background-repeat: repeat;
   background-size: 150%;
@@ -203,4 +197,40 @@ form {
   padding: 3px; 
   font-weight: normal;
   font-size: 12px;
+}
+
+.navbar {
+  background-color: #F0EDD4;
+}
+
+.nav-bar-button {
+  background-color: #F0EDD4;
+  border-radius: 15%;
+  padding: 5px;
+}
+
+.button-logout {
+  background-color: #F0EDD4;
+  border-radius: 15%;
+  padding: 5px;
+  font-size: 12px;
+  border-color: #F0EDD4; 
+}
+
+.nav-item {
+  border: 2px;
+  border-style: solid;
+  border-color: #ECCDB4;
+  border-radius: 15%;
+  /* margin: 3px; */
+  margin-left: 10px;
+  margin-right: 10px; 
+  
+}
+
+@media (max-width: 414px) {
+  .navbar {
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
 }
