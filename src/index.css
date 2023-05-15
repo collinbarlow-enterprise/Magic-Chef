@@ -1,5 +1,5 @@
 /* CSS Custom Properties */
-:root {
+/* :root {
   --white: #FFFFFF;
   --tan-1: #FBF9F6;
   --tan-2: #E7E2DD;
@@ -113,7 +113,7 @@ input {
   color: var(--text-dark);
   background-image: none !important;
   /* prevent lastpass */
-  outline: none;
+  /* outline: none;
 }
 
 input:focus {
@@ -155,4 +155,52 @@ form:invalid button[type="submit"] {
 button[type="submit"] {
   grid-column: span 2;
   margin: 1vmin 0 0;
+} */ 
+
+body {
+  background-image: url('/public/images/peach-background.jpg');
+  /* background-size: cover;
+  background-repeat: repeat-y;
+  margin-bottom: 25px; */
+  /* height: 50%; */
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: repeat;
+  background-size: 150%;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1.25vmin;
+  color: var(--text-light);
+  padding: 15px;
+  border: 2px;
+  border-color: #F9FBE7;
+  border-style: solid;
+  text-align: left;
+  font-size: 14px;
+  background-color: #F9FBE7;
+}
+
+.login-title {
+  font-weight: light;
+  border: 2px;
+  border-color: #F0EDD4;
+  border-style: solid;
+  border-radius: 15%;
+  background-color: #ECCDB4;
+  padding: 3px; 
+}
+
+.login-button {
+  background-color: #ECCDB4;
+  border: 2px;
+  border-style: solid;
+  border-color: #F0EDD4;
+  border-radius: 15%;
+  padding: 3px; 
+  font-weight: normal;
+  font-size: 12px;
 }
