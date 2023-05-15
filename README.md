@@ -8,17 +8,17 @@ The time is now, to say no to the stress of uncertain dinner plans!
 
 This website is very simple to use. After logging in, a user navigates to the New Pantry Page and adds a list of their ingredients. 
   
-![Home Page](public/screenshots/HomePage.png)
+![HomePage](public/screenshots/HomePage.png)
   
-![New Pantry Page](public/screenshots/NewPantryPage.png)
+![NewPantry Page](public/screenshots/NewPantryPage.png)
   
 From there, they can create a recipe with a single button click, and once the recipe returns they are redirected to the AllRecipes Page. This stores all of a user's recipes, where they can delete, or move into the details page. 
   
-![All Recipes Page](public/screenshots/AllRecipesPage.png)  
+![AllRecipesPage](public/screenshots/AllRecipesPage.png)  
   
 The Details Page, explains the recipe's instructions, and has the functionality for a user to make notes on said recipe. Giving them the option to tweak and make the recipe their own. 
   
-![Recipe Details Page](public/screenshots/RecipeDetailsPage.png)
+![RecipeDetailsPage](public/screenshots/RecipeDetailsPage.png)
   
  ## Next Steps:
 
