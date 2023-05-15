@@ -51,7 +51,7 @@ export default function RecipeDetails() {
           return (
           <div key={index}>
             <div>{index+1}. {note}</div>
-            <button onClick ={() => handleDelete(index, note)}>Delete Note</button>
+            <button className="add-ingredients-button" onClick ={() => handleDelete(index, note)}>Delete Note</button>
           </div>          
         )})}
         <div className="container">
