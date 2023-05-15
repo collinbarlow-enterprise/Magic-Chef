@@ -15,7 +15,6 @@ export default function PantryComponent({ingredients, id, pantry,  handleEditLis
     getPantries()
 }
   async function handleNavigation() {
-    console.log('how many times does this show up')
     navigate(`/loadingPage/${id}`)
   }
 
