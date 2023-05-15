@@ -37,21 +37,31 @@ export default function EditPantry() {
     }
     
       return (
-        <div>
-          <div>Edit your list</div>
-          <div>Ingredients: {newPantry.ingredients}</div>
-          <div className = 'pantry_form'>
-            <form onSubmit={handleSubmit}>
-              <label>Ingredient</label>
-              <input 
-              name='ingredients' 
-              type='text' 
-              value={newPantry.ingredients} 
-              onChange={handleInputChange}
-              />
-              <button type='submit'>Add Ingredients</button>
-            </form>
-          </div>
+        <div className="container background-div">
+          <div className="row">
+            <h1 className="text-center">Edit your list</h1>
+            <div className="row">
+              <div className="col-2 spacer-new-form-left"></div>
+              <div className="text-center">Ingredients: {newPantry.ingredients}</div>
+            </div>
+            <div className="col-2 spacer-new-form-left"></div>
+              <div className="new-ingredient-form col-6">
+                <form id="edit-pantry-form" onSubmit={handleSubmit}>
+                  <label className="ingredient-label">Ingredients:</label>
+                  <input 
+                    name='ingredients' 
+                    type='text' 
+                    value={newPantry.ingredients} 
+                    onChange={handleInputChange}
+                  />
+                </form>
+                </div>
+                <div className="row">
+                <div className="col-5"></div>
+                <button type="submit" form="edit-pantry-form"className="add-ingredients-button col-2">Add Ingredients</button>
+                <div className="col-5"></div>
+              </div>
+              </div>
         </div>
       )
     }

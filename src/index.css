@@ -293,6 +293,17 @@ form {
   font-size: 15px;
 }
 
+.background-div {
+  border: 2px;
+  border-color: #F9FBE7;
+  border-style: solid;
+  text-align: left;
+  opacity: .9;
+  background-color: #F9FBE7;
+  margin-top: 20px;
+  padding: 15px;
+}
+
 @media (max-width: 414px) {
   .navbar {
     flex-flow: row wrap;
