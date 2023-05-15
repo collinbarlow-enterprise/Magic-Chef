@@ -15,7 +15,9 @@ module.exports = {
 }
 
 async function index(req,res) {
-    const recipes = await Recipe.find({});
+    console.log(req.user, 'req.user in INDEX')
+    const userId = req.user._id;
+    const recipes = await Recipe.find({user: userId});
     res.json(recipes)
 }
 

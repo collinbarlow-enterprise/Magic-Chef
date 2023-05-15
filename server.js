@@ -18,7 +18,6 @@ app.use(require('./config/checkToken'));
 
 //routes
 app.use('/api/users', require('./routes/api/users'));
-app.use('/api/notes', ensureLoggedIn, require('./routes/api/notes'));
 app.use('/api/pantry', ensureLoggedIn, require('./routes/api/pantry'));
 app.use('/api/recipes', ensureLoggedIn, require('./routes/api/recipes'));
 

@@ -158,7 +158,7 @@ button[type="submit"] {
 } */ 
 
 body {
-  background-image: url('/public/images/peach-background.jpg');
+  background-image: url('/images/peach-background.jpg');
   background-position: center;
   background-repeat: repeat;
   background-size: 150%;

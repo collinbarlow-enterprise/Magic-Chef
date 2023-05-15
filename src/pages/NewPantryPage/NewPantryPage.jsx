@@ -15,7 +15,7 @@ export default function NewPantryPage() {
   async function getPantries() {
     try{
       const pantry = await pantryAPI.showPantry();
-      // console.log(pantry, 'pantry in pantry form')
+      console.log(pantry, 'pantry in pantry form')
       setPantries(pantry);
     } catch(err) {
       console.log(err, 'error for getPantries')
