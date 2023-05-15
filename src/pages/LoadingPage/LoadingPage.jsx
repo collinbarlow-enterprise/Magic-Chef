@@ -35,6 +35,7 @@ export default function LoadingPage() {
       <div className="container background-div text-center">
         <h5>Loading Page</h5>
         <div>The Magic Chef is Cooking Something Up</div>
+        
         <div class="center">
           <div class="wave"></div>
           <div class="wave"></div>
@@ -47,6 +48,7 @@ export default function LoadingPage() {
           <div class="wave"></div>
           <div class="wave"></div>
         </div>
+        <div>This could take a few seconds...</div>
       </div>
       
     </div>
