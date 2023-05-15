@@ -8,14 +8,19 @@ export default function AllRecipes({recipe, ingredients, recipeName, recipeIngre
     navigate(`/recipes/${id}`)
   }
   return (
-    <div>
-        <div></div>
-        <div>The {recipeName} recipe is made using:</div>
-         <div>{recipeIngredients}</div>
-         <button onClick ={() => handleDelete(recipe)}>Delete Recipe</button>
-         <button onClick ={() => handleDetailsPage(id)}>Details Page</button>
-
+    <div className="card mb-3">
+      <div className="row g-0">
+        <div className="text-center">{recipeName} Recipe</div>
+        <div className="row g-0">
+        <div className="col-2 spacer-new-form-left"></div>
+          <button className="pantry-button col-4" onClick ={() => handleDelete(recipe)}>Delete Recipe</button>
+          
+          
+         <button className="pantry-button col-4" onClick ={() => handleDetailsPage(id)}>Details Page</button>
+         <div className="col-2 spacer-new-form-right"></div>
+         </div>
+        </div>
+      </div>
     
-    </div>
   )
 }

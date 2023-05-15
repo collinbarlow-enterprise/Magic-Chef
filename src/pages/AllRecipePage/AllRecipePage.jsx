@@ -21,11 +21,6 @@ export default function AllRecipePage() {
     getRecipe();
   }, [])
 
-  async function handleCheckToken(){
-   const expDate = await checkToken()
-   console.log(expDate)
-  }
-
   async function handleDelete(recipe) {
     await recipeAPI.deleteRecipe(recipe)
     getRecipe();
@@ -46,9 +41,13 @@ export default function AllRecipePage() {
 
   return (
     <>
-      <h1>All Recipes</h1>
-      <br/>
-      {recipeMap}
+      <div className="container">
+        <div className="background-div">
+          <h1 className="text-center">All Recipes</h1>
+          <br/>
+          {recipeMap}
+        </div>
+      </div>
     </>
   )
 }
