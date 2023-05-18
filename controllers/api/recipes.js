@@ -67,6 +67,17 @@ async function createRecipe(req, res) {
         const userId = req.user._id;
         const ingredients = req.body.ingredients;
 
+// prompt engineering:
+// what do I want it to do? 
+// what do I want it to return?
+// what do I need to give it?
+// how instructive do I need to be?
+// can I ask for a specific format back to help with destructuring?
+// where can it go wrong?
+// how do I anticipate those areas and then fix them?
+
+
+
         const prompt = `Give me a recipe using ${ingredients}`;
         const params = {
             model: 'text-davinci-003',
