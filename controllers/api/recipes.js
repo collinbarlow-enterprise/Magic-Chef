@@ -82,7 +82,7 @@ async function createRecipe(req, res) {
         const prompt = `Give me a recipe using ${ingredients}`;
         const params = {
             // model: 'text-davinci-003',
-            model: 'gpt-3.5-turbo';
+            model: 'gpt-3.5-turbo',
             prompt: prompt,
             max_tokens:250,
             temperature: 0.75,
