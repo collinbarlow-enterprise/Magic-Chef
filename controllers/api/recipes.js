@@ -13,21 +13,21 @@ module.exports = {
     removeNote
 }
 
-async function index(req,res) {
+async function index(req, res) {
     const userId = req.user._id;
-    const recipes = await Recipe.find({user: userId});
+    const recipes = await Recipe.find({ user: userId });
     res.json(recipes)
 }
 
-async function findSpecificRecipe(req,res) {
+async function findSpecificRecipe(req, res) {
     const recipe = await Recipe.findById(req.params.id);
     res.json(recipe)
 }
 
-async function deleteRecipe(req,res) {
+async function deleteRecipe(req, res) {
     try {
         const recipe = await Recipe.findByIdAndDelete(req.body._id);
-        res.json({success: true, recipe})
+        res.json({ success: true, recipe })
 
     } catch (err) {
         res.status(400).json(err)
@@ -35,15 +35,15 @@ async function deleteRecipe(req,res) {
 }
 
 async function addNote(req, res) {
-    try{
+    try {
         const id = req.params.id;
         const note = req.body.noteList.notes;
         const grabRecipe = await Recipe.findByIdAndUpdate(
-            id, 
-            { $push: {notes : note}}, 
-            {new: true});
+            id,
+            { $push: { notes: note } },
+            { new: true });
         res.json(grabRecipe);
-    } catch(err) {
+    } catch (err) {
         res.status(400).json(err)
     }
 }
@@ -54,7 +54,7 @@ async function removeNote(req, res) {
         const recipe = await Recipe.findById(id);
         const index = req.body.index;
         const notes = recipe.notes;
-        notes.splice(index,1);
+        notes.splice(index, 1);
         const result = await recipe.save();
         res.json(result);
     } catch (err) {
@@ -63,58 +63,65 @@ async function removeNote(req, res) {
 }
 
 async function createRecipe(req, res) {
-    try{
+    try {
         const userId = req.user._id;
         const ingredients = req.body.ingredients;
-        console.log(userId, ingredients, 'consolelog')
 
-// prompt engineering:
-// what do I want it to do? 
-// what do I want it to return?
-// what do I need to give it?
-// how instructive do I need to be?
-// can I ask for a specific format back to help with destructuring?
-// where can it go wrong?
-// how do I anticipate those areas and then fix them?
+        // Constructing the prompt message for a single input
+        const prompt = `Please give me a recipe using the following ingredients: ${ingredients.join(', ')}.`;
 
+        // Constructing the user message
+        const userMessage = `Please give me a recipe using the following ingredients: ${ingredients.join(', ')}.`;
 
-
-        const prompt = `Give me a recipe using ${ingredients}`;
         const params = {
-            // model: 'text-davinci-003',
             model: 'gpt-3.5-turbo',
-            prompt: prompt,
-            max_tokens:250,
+            messages: [
+                {
+                    "role": "system",
+                    "content": "You will be provided with a list of ingredients, and your task is to generate a recipe using these ingredients."
+                },
+                {
+                    "role": "user",
+                    "content": userMessage
+                }
+            ],
+            max_tokens: 250,
             temperature: 0.75,
-            n:1
+            n: 1
         };
-        const response = await openai.createCompletion(params);
-        const completionText = response.data.choices[0].text;
 
-        const recipeNameRegex = /^([A-Za-z\s]+)(?=\nIngredients:)/m;
+
+        const response = await openai.chat.completions.create(params);
+        const completionText = response.choices[0].message.content;
+
+        const recipeNameRegex = /^Recipe:\s*(.+)$/m;
         const recipeNameMatch = completionText.match(recipeNameRegex);
         const recipeName = recipeNameMatch ? recipeNameMatch[1].trim() : '';
+        console.log(recipeName, 'RECIPENAME IN CONTROLLER');
+
 
         const ingredientsRegex = /^Ingredients:\s*(.*)(?=Instructions:)/ms;
         const ingredientsMatch = completionText.match(ingredientsRegex);
         const recipeIngredients = ingredientsMatch ? ingredientsMatch[1].trim() : '';
 
         const instructionsRegex = /^Instructions:\s*(.*)$/ms;
-        const instructionsMatch = completionText.match(instructionsRegex)
+        const instructionsMatch = completionText.match(instructionsRegex);
         const instructions = instructionsMatch ? instructionsMatch[1].trim() : '';
 
         const newRecipe = await Recipe.create({
-            ingredients: ingredients, 
+            ingredients: ingredients,
             user: userId,
             recipeName: recipeName,
-            recipeIngredients:recipeIngredients, 
+            recipeIngredients: recipeIngredients,
             recipeInstructions: instructions,
-        })
+        });
         res.json(newRecipe);
     } catch (error) {
+        console.log('Error during API request:', error);
         res.status(400).json({ message: error.message, stack: error.stack });
     }
 }
 
 
-  
+
+
