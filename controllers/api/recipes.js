@@ -66,6 +66,7 @@ async function createRecipe(req, res) {
     try{
         const userId = req.user._id;
         const ingredients = req.body.ingredients;
+        console.log(userId, ingredients, 'consolelog')
 
 // prompt engineering:
 // what do I want it to do? 
